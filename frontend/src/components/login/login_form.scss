@@ -1,8 +1,9 @@
 .login {
-    background-color: rgb(236, 235, 235);
+    background-color: rgb(245, 245, 245);
     display: flexbox;
-    padding: 50px;
-    border-radius: 5px;
+    padding: 30px;
+    min-width: 300px;
+    border-radius: 6px;
     text-align: center;
 }
 .header {
@@ -17,16 +18,19 @@
     display: inline-block;
     padding: 10px;
     color: gray;
-    height: 40px;
+    background-color: white;
+    height: 30px;
     width: 200px;
     border-radius: 4px;
     margin-bottom: 20px;
     font-size: 16px;
+    border: none;
 }
 .submit-login {
+    background-color: rgb(245, 245, 245);
     display: inline-block;
     border: rgb(84, 145, 196) solid;
-    color:  rgb(84, 145, 196) solid;
+    color: rgb(84, 145, 196);
     font-size: 18px;
     border-width: .5mm;
     min-height: 32px;
