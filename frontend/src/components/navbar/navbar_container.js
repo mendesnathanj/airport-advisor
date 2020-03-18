@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { openModal, closeModal } from '../../actions/modal_actions';
 import Navbar from './navbar';
 
 
@@ -9,8 +10,9 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch => ({
-  // TODO: map openModals for login and signup
   // TODO: map logout function for when a user is logged in
+  closeModal: () => dispatch(closeModal()),
+  openModal: modal => dispatch(openModal(modal))
 });
 
 
