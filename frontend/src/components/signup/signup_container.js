@@ -4,8 +4,8 @@ import SignupForm from './signup_form';
 
 const mapStateToProps = (state) => {
     return {
-        errors: state.errors.session
-    }
+      formType: "signup"
+    };
 }
 
 const mapDispatchToProps = (dispatch) => {

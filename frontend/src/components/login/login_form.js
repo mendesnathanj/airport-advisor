@@ -9,11 +9,10 @@ class LoginForm extends React.Component {
     //may have to change depending on column names
     this.state = {
       username: "username",
-      password: "password",
-      errors: ""
+      password: "password"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+    // this.renderErrors = this.renderErrors.bind(this);
   }
 
   handleSubmit(e) {
@@ -31,17 +30,17 @@ class LoginForm extends React.Component {
         [field]: e.currentTarget.value
       });
   }
-  renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
-    }
+//   renderErrors() {
+//     return(
+//       <ul>
+//         {Object.keys(this.state.errors).map((error, i) => (
+//           <li key={`error-${i}`}>
+//             {this.state.errors[error]}
+//           </li>
+//         ))}
+//       </ul>
+//     );
+//     }
     render() {
         return (
           <div>
@@ -61,7 +60,7 @@ class LoginForm extends React.Component {
               />
               <br />
               <input type="submit" value="Submit" />
-              {this.renderErrors()}
+              {/* {this.renderErrors()} */}
             </form>
             {/* <button>Create a button to open the sign up modal</button> */}
           </div>

@@ -2,7 +2,8 @@ import './modal.scss';
 import React from "react";
 import { closeModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
-import LoginFormContainer from "./login_form_container";
+import LoginFormContainer from "../login/login_container";
+import SignupFormContainer from "../signup/signup_container";
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -12,6 +13,9 @@ function Modal({ modal, closeModal }) {
   switch (modal) {
     case "login":
       component = <LoginFormContainer />;
+      break;
+    case "signup":
+      component = <SignupFormContainer />;
       break;
     default:
       return null;
@@ -24,6 +28,8 @@ function Modal({ modal, closeModal }) {
     </div>
   );
 }
+
+
 
 const mapStateToProps = state => {
   return {

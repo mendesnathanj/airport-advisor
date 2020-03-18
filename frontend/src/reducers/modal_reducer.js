@@ -1,5 +1,4 @@
 import { OPEN_MODAL, CLOSE_MODAL } from '../actions/modal_actions';
-import { DefaultSerializer } from 'v8';
 
 export default function modalReducer(state = null, action) {
     switch (action.type) {

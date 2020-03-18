@@ -7,8 +7,8 @@ class SignupForm extends React.Component {
         this.state = {
             username:'',
             password:'',
-            password2:'',
-            errors = {}
+            password2:''
+            // errors = {}
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -26,17 +26,17 @@ class SignupForm extends React.Component {
         }
         this.props.signup(user, this.props.history)
     }
-    renderErrors() {
-         return(
-            <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                <li key={`error-${i}`}>
-                    {this.state.errors[error]}
-                </li>
-                ))}
-            </ul>
-    );
-    }
+    // renderErrors() {
+    //      return(
+    //         <ul>
+    //             {Object.keys(this.state.errors).map((error, i) => (
+    //             <li key={`error-${i}`}>
+    //                 {this.state.errors[error]}
+    //             </li>
+    //             ))}
+    //         </ul>
+    // );
+    // }
     render() {
         return (
             <div>
@@ -60,10 +60,12 @@ class SignupForm extends React.Component {
                     />
                     <br/>
                     <input type="submit" value="Submit" />
-                    {this.renderErrors()}
+                    {/* {this.renderErrors()} */}
                 </form>
                 {/* <button>Create a button to open the login modal</button> */}
             </div>
         )
     }
 }
+
+export default withRouter(SignupForm);
