@@ -6,7 +6,7 @@ const AirportSchema = new Schema({
     type: String,
     required: true
   },
-  
+
   code: {
     type: String,
     required: true
@@ -29,8 +29,7 @@ const AirportSchema = new Schema({
   long: {
     type: Number
   }
-
 });
 
-const Airport = mongoose.model('airport', AirportSchema);
-module.exports = Airport; 
+const Airport = mongoose.model("airport", AirportSchema);
+module.exports = Airport;
