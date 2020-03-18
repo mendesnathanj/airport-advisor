@@ -39,32 +39,39 @@ class SignupForm extends React.Component {
     // }
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text"
-                        value={this.state.username}
-                        onChange={this.update('username')}
-                        placeholder="username"
-                    />
-                    <br/>
-                    <input type="text"
-                        value={this.state.password}
-                        onChange={this.update('password')}
-                        placeholder="password"
-                    />
-                    <br/>
-                    <input type="text"
-                        value={this.state.password2}
-                        onChange={this.update('password2')}
-                        placeholder="Confirm Password"
-                    />
-                    <br/>
-                    <input type="submit" value="Submit" />
-                    {/* {this.renderErrors()} */}
-                </form>
-                {/* <button>Create a button to open the login modal</button> */}
-            </div>
-        )
+          <div className="signup">
+            <header>Sign Up</header>
+            <form onSubmit={this.handleSubmit} className="signup-form">
+              <input
+                className="signup-input"
+                type="text"
+                value={this.state.username}
+                onChange={this.update("username")}
+                placeholder="username"
+              />
+              <br />
+              <input
+                className="signup-input"
+                type="text"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="password"
+              />
+              <br />
+              <input
+                className="signup-input"
+                type="text"
+                value={this.state.password2}
+                onChange={this.update("password2")}
+                placeholder="Confirm Password"
+              />
+              <br />
+              <input className="submit-signin" type="submit" value="Submit" />
+              {/* {this.renderErrors()} */}
+            </form>
+            {/* <button>Create a button to open the login modal</button> */}
+          </div>
+        );
     }
 }
 

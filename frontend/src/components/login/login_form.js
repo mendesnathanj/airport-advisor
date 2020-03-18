@@ -43,9 +43,11 @@ class LoginForm extends React.Component {
 //     }
     render() {
         return (
-          <div>
-            <form onSubmit={this.handleSubmit}>
+          <div className="login">
+            <header className="header">Sign Up</header>
+            <form onSubmit={this.handleSubmit} className="login-form">
               <input
+                className="login-input"
                 type="text"
                 value={this.state.email}
                 onChange={this.update("username")}
@@ -53,13 +55,14 @@ class LoginForm extends React.Component {
               />
               <br />
               <input
+                className="login-input"
                 type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
                 placeholder="password"
               />
               <br />
-              <input type="submit" value="Submit" />
+              <input className="submit-login" type="submit" value="Login" />
               {/* {this.renderErrors()} */}
             </form>
             {/* <button>Create a button to open the sign up modal</button> */}
