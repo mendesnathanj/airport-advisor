@@ -21,6 +21,7 @@ class LoginForm extends React.Component {
         username: this.state.username,
         password: this.state.password
     }
+    this.props.closeModal();
     this.props.login(user);
   }
 

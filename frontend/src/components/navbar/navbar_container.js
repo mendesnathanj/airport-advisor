@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { logout } from '../../actions/session_actions';
 import Navbar from './navbar';
 
 
 const mapStateToProps = state => ({
-  // TODO: map the current user to props
+  loggedIn: state.session.isAuthenticated
 });
 
 
 const mapDispatchToProps = dispatch => ({
-  // TODO: map logout function for when a user is logged in
   closeModal: () => dispatch(closeModal()),
-  openModal: modal => dispatch(openModal(modal))
+  openModal: modal => dispatch(openModal(modal)),
+  logout: () => dispatch(logout())
 });
 
 
