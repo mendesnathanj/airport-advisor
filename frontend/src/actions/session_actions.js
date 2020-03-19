@@ -22,8 +22,9 @@ export const receiveErrors = errors => ({
   errors
 });
 
-export const receiveUserSignIn = () => ({
-  type: RECEIVE_USER_SIGN_IN
+export const receiveUserSignIn = currentUser => ({
+  type: RECEIVE_USER_SIGN_IN,
+  currentUser
 });
 
 export const logout = () => dispatch => {
@@ -32,9 +33,11 @@ export const logout = () => dispatch => {
   dispatch(logoutUser());
 };
 
+// TODO: ADD FUNCTIONALITY TO LOGIN USER AUTOMATICALLY WHEN THEY SIGN UP
+// JUST MAKE IT LOOK MORE LIKE THE LOGIN DISPATCH
 export const signup = user => dispatch => (
-  APIUtil.signup(user).then(() => (
-    dispatch(receiveUserSignIn())
+  APIUtil.signup(user).then(user => (
+    dispatch(receiveUserSignIn(user))
   ), err => (
     dispatch(receiveErrors(err.response.data))
   ))

@@ -8,8 +8,8 @@ class SignupForm extends React.Component {
             username:'',
             password:'',
             password2:''
-            // errors = {}
         }
+
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     update(field) {
@@ -24,7 +24,8 @@ class SignupForm extends React.Component {
             password: this.state.password,
             password2: this.state.password2
         }
-        this.props.signup(user, this.props.history)
+        this.props.signup(user)
+        this.props.closeModal();
     }
     // renderErrors() {
     //      return(
@@ -52,7 +53,7 @@ class SignupForm extends React.Component {
               <br />
               <input
                 className="signup-input"
-                type="text"
+                type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
                 placeholder="password"
@@ -60,7 +61,7 @@ class SignupForm extends React.Component {
               <br />
               <input
                 className="signup-input"
-                type="text"
+                type="password"
                 value={this.state.password2}
                 onChange={this.update("password2")}
                 placeholder="Confirm Password"

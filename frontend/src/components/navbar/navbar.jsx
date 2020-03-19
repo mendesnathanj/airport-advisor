@@ -8,8 +8,6 @@ const Navbar = props => {
   const searchBar = props.match.path !== '/' ? null : <SearchBarContainer />;
 
   let navLinks;
-
-  console.log(props.loggedIn);
   if (props.loggedIn) {
     navLinks = (
       <ul className="navbar-list">
@@ -27,7 +25,6 @@ const Navbar = props => {
     );
   }
 
-  // TODO: add functionality to display logout button when user is signed in
   return (
     <nav className={`navbar ${navbarTheme}`}>
       <h1 className="navbar-title"><Link to='/'>Airport Advisor</Link></h1>

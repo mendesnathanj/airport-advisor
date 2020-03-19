@@ -8,8 +8,8 @@ class LoginForm extends React.Component {
 
     //may have to change depending on column names
     this.state = {
-      username: "username",
-      password: "password"
+      username: "",
+      password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.renderErrors = this.renderErrors.bind(this);
