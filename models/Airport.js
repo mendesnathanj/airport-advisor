@@ -9,7 +9,7 @@ const AirportSchema = new Schema({
 
   code: {
     type: String,
-    required: true
+    // required: true
   },
 
   city: {
