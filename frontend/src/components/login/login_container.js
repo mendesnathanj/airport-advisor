@@ -1,23 +1,18 @@
 import { connect } from 'react-redux';
 import LoginForm from './login_form';
-// import { openModal, closeModal } from '../../actions/modal_actions';
-// will need to import login action when written
+import { login } from '../../actions/session_actions';
+import { closeModal } from '../../actions/modal_actions';
 
-//may add back in later
 
-const mapStateToProps = (state) => {
-    return {
-      formType: "login"
-    };
-}
+const mapStateToProps = (state) => ({
+      formType: "login",
+      errors: state.errors.session
+});
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        // login: user => dispatch(login(user)),
-        // closeModal: () => dispatch(closeModal()),
-        // openModal: (modal) => dispatch(openModal(modal))
-    }
-}
+const mapDispatchToProps = (dispatch) => ({
+    login: user => dispatch(login(user)),
+    closeModal: () => dispatch(closeModal())
+})
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

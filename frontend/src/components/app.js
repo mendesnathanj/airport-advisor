@@ -1,16 +1,17 @@
 import React from 'react';
-import './App.scss';
-import Modal from './modal/modal'
-import ModalTest from './modal/modal_test';
-import AirportResults from './airport_results/airport_results'
+import { Switch, Route } from 'react-router-dom';
+import Landing from './landing/landing';
+import NavbarContainer from './navbar/navbar_container';
+import Modal from './modal/modal';
+
 
 const App = () => (
   <div className="app">
-    <header>
-      <ModalTest/>
-    </header>
-      <Modal />
-      <AirportResults/>
+    <NavbarContainer />
+    <Modal />
+    <Switch>
+      <Route path='/' component={Landing} />
+    </Switch>
   </div>
 );
 
