@@ -33,12 +33,13 @@ export const logout = () => dispatch => {
   dispatch(logoutUser());
 };
 
-// TODO: ADD FUNCTIONALITY TO LOGIN USER AUTOMATICALLY WHEN THEY SIGN UP
-// JUST MAKE IT LOOK MORE LIKE THE LOGIN DISPATCH
 export const signup = user => dispatch => (
-  APIUtil.signup(user).then(user => (
-    dispatch(receiveUserSignIn(user))
-  ), err => (
+  APIUtil.signup(user).then(res => {
+    const { token } = res.data;
+    localStorage.setItem('jwtToken', token);
+    const decoded = jwt_decode(token);
+    dispatch(receiveCurrentUser(decoded))
+  }, err => (
     dispatch(receiveErrors(err.response.data))
   ))
 );
