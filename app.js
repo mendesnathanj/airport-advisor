@@ -21,6 +21,9 @@ app.listen(port, () => console.log(`Server is running on port ${port}`));
 const users = require("./routes/api/users");
 app.use("/api/users", users);
 
+const reviews = require('./routes/api/reviews');
+app.use('/api/reviews', reviews)
+
 
 const passport = require('passport');
 
