@@ -6,13 +6,15 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err)); 
 
-// db.createCollection("airports");
-
-// db.airports.deleteMany({});
+// mongoose.airports.drop({});
 
 const fs = require('fs');
 const parse = require("csv-parse");
 const Airport = require("../models/Airport")
+
+Airport.remove({}, () => {
+  console.log("all data removed");
+});
 
 const excludedCats = [
   "heliport",
@@ -45,23 +47,20 @@ fs.createReadStream("./airport-codes.csv")
             long: long
           });
 
-          data.push(newAirport);
-          // newAirport.save()
+          // data.push(newAirport);
+          newAirport.save()
         };
 
     })
 
     .on("end", () => {
         console.log("end");
-        const testData = data.slice(0, 4);
-        console.log(testData)
-        testData.forEach(airport => {
-          airport.save();
-        });
+        // const testData = data.slice(0, 4);
+        // console.log(testData)
+        // testData.forEach(airport => {
+          // airport.save();
+        // });
     });
 
-// console.log(data)
-// const testData = data.slice(0, 4)
-// console.log(testData)
 
 
