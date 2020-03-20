@@ -1,13 +1,20 @@
 import React from 'react';
-
+import Header from './header';
+import Sliders from './sliders';
+import Textbox from './textbox';
+import './ReviewForm.scss';
 
 class ReviewForm extends React.Component {
   render() {
-    console.log(this.props);
     return (
-      <div>
-        <form>
-          <h1>New Review for { this.props.airport }</h1>
+      <div className="review-form-container">
+        <form className="review-form">
+          <div className="review-form-content-wrapper">
+            <Header airport={ this.props.airport } />
+            <Sliders />
+            <Textbox />
+            <button className="review-form-btn">Post Review</button>
+          </div>
         </form>
       </div>
     );

@@ -1,0 +1,86 @@
+.review-form {
+  background-color: rgb(245, 245, 245);
+  padding: 2.5em 1.5em;
+  max-height: 550px;
+  overflow-y: auto;
+  font-family: 'Sen', sans-serif;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 500px;
+  text-align: center;
+  transition: all 1s ease-in-out;
+}
+
+.review-form-content-wrapper {
+  color: inherit;
+}
+
+.review-header, .review-header-airport-title {
+  font-weight: 700;
+  color: #333;
+}
+
+.review-header {
+  font-size: 1.25em;
+  margin-bottom: 0.75em;
+}
+
+.review-header-airport-title {
+  font-size: 1.125em;
+}
+
+.review-header-container {
+  margin-bottom: 2em;
+}
+
+.rating-input-container {
+  padding-bottom: 2em;
+}
+
+.textarea-title {
+  text-align: left;
+}
+
+.text-area {
+  font-family: 'Sen', sans-serif;
+  font-size: 1em;
+  padding: 8px;
+  width: 100%;
+  min-height: 250px;
+  height: auto;
+  margin-top: 0.5em;
+  border-radius: 5px;
+  border-color: #ccc;
+  color: #333;
+  letter-spacing: 0.75px;
+}
+
+.text-area:focus {
+  outline: none;
+}
+
+.disclaimer {
+  display: inline-block;
+  margin-top: 1em;
+  color: #777;
+  font-size: 0.8em;
+}
+
+$btn-color: #f55b5b;
+
+.review-form-btn {
+  color: $btn-color;
+  padding: 12px 16px;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  border: 2px solid $btn-color;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.review-form-btn:hover {
+  color: #fff;
+  background-color: $btn-color;
+}
