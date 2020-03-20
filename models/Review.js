@@ -38,6 +38,7 @@ const ReviewSchema = new Schema({
         },
         general_score: {
             type: Number,
+            required: true
         }
     },
     date: {
