@@ -6,7 +6,7 @@ const ReviewSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
-    airport_id: {
+    airport: {
         type: Schema.Types.ObjectId,
         ref: 'airports'
     },
@@ -38,6 +38,7 @@ const ReviewSchema = new Schema({
         },
         general_score: {
             type: Number,
+            required: true
         }
     },
     date: {
