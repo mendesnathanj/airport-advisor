@@ -20,6 +20,7 @@ const Navbar = props => {
       <ul className="navbar-list">
         <li onClick={ () => props.openModal('login') } className="navlink">Login</li>
         <li onClick={() => props.openModal('signup')} className="navlink">Signup</li>
+        <li onClick={() => props.openModal('review')} className="navlink">Review</li>
         { searchBar }
       </ul>
     );
