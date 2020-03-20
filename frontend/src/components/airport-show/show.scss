@@ -1,0 +1,32 @@
+.show-page {
+    display: flexbox;
+    text-align: center;
+    font-family: sans-serif;
+    // background-color: rgb(245, 245, 245);
+    margin: 15px;
+}
+.show-summary {
+    display: inline;
+    font-size: 24px;
+}
+.show-body {
+    display: inline;
+}
+.show-review-item {
+    display: inline-block;
+    margin: 20px;
+    border-bottom: lightgrey solid;
+    padding-bottom: 20px;
+}
+.review-btn {
+    color: rgb(226, 86, 51);
+    font-size: 16px;
+    padding: 7px;
+    border: rgb(226, 86, 51) solid;
+    border-width: .5mm;
+    min-height: 32px;
+    min-width: 90px;
+    border-radius: 3px;;
+    margin: 10px;
+
+}
