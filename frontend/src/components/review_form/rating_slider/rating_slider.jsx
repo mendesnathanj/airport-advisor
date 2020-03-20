@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from './slider';
-import './Slider.scss';
+import './RatingSlider.scss';
 
 class RatingSlider extends React.Component {
   render() {

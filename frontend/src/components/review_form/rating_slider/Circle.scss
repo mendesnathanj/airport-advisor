@@ -3,11 +3,6 @@ $border-color: #c4c4c4;
 $bg-color: #77DD77;
 // $bg-color: #94d1e7;
 
-
-.slider-prompt {
-  margin-bottom: 1em;
-}
-
 .circle-list-container {
   display: flex;
   width: 150px;
@@ -16,7 +11,7 @@ $bg-color: #77DD77;
 }
 
 .circle, .half-circle {
-  // transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
 }
 
 .circle {
@@ -27,7 +22,7 @@ $bg-color: #77DD77;
 }
 
 .circle:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 // .half-circle {

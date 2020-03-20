@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Circle.scss';
 
 class Circle extends React.Component {
   constructor(props) {

@@ -5,6 +5,14 @@ import Textbox from './textbox';
 import './ReviewForm.scss';
 
 class ReviewForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+    };
+  }
+
   render() {
     return (
       <div className="review-form-container">
