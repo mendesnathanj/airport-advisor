@@ -5,14 +5,14 @@ import './Navbar.scss';
 
 const Navbar = props => {
   const navbarTheme = props.match.path === '/' ? 'light' : 'dark';
-  const searchBar = props.match.path !== '/' ? null : <SearchBarContainer />;
+  const searchBar = props.match.path === '/' ? null : <li><SearchBarContainer /></li>;
 
   let navLinks;
   if (props.loggedIn) {
     navLinks = (
       <ul className="navbar-list">
         <li onClick={ () => props.logout() } className="navlink">Logout</li>
-        <li>{ searchBar }</li>
+        { searchBar }
       </ul>
     );
   } else {
@@ -20,7 +20,8 @@ const Navbar = props => {
       <ul className="navbar-list">
         <li onClick={ () => props.openModal('login') } className="navlink">Login</li>
         <li onClick={() => props.openModal('signup')} className="navlink">Signup</li>
-        <li>{ searchBar }</li>
+        <li onClick={() => props.openModal('review')} className="navlink">Review</li>
+        { searchBar }
       </ul>
     );
   }
