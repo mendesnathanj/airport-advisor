@@ -1,7 +1,7 @@
 import React from 'react';
 import './show.scss'
 import RatingItem from './rating_item';
-
+import ShowRating from './show-ratings/ratings'
 
 class ShowForm extends React.Component {    
     componentDidMount() {
@@ -12,6 +12,7 @@ class ShowForm extends React.Component {
             <div className="show-page">
                 <header className="show-summary">
                     <h1>Airport Name</h1>
+                    <h1><ShowRating/></h1>
                     <h1>Airport Overall Ratings</h1>
                     <h1>Airport Individual Ratings</h1>
                     {/* <x-star-rating></x-star-rating> */}
