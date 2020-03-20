@@ -11,7 +11,7 @@ module.exports = function validateReviewInput(data) {
     }
 
     if (Validator.isEmpty(data.review)) {
-        errors.text = 'Text field is required';
+        errors.text = 'Review field is required';
     }
 
     return {

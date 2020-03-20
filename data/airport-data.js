@@ -47,19 +47,21 @@ fs.createReadStream("./airport-codes.csv")
             long: long
           });
 
-          // data.push(newAirport);
-          newAirport.save()
+          // newAirport.populate('reviews')
+          
+          data.push(newAirport);
+          // newAirport.save()
         };
 
     })
 
     .on("end", () => {
-        console.log("end");
-        // const testData = data.slice(0, 4);
-        // console.log(testData)
-        // testData.forEach(airport => {
-          // airport.save();
-        // });
+      const testData = data.slice(0, 4);
+      console.log(testData)
+      testData.forEach(airport => {
+        airport.save();
+      });
+      console.log("end");
     });
 
 

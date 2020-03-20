@@ -10,6 +10,7 @@ router.get("/", (req, res) => {
       .sort({ code: 1 }) // sort by code alphabetically
       .then(airports => {
         airports.forEach(airport => {
+  
           let id = airport.id;
           result[id] = airport;
         });
@@ -24,15 +25,11 @@ router.get("/:airport_id", (req, res) => {
     const errors = {};
 
     Airport
-        .find({_id: req.params.airport_id })
-        .then(airports => {
-            if(airports.length !== 1) {
-                errors.airports = "More than one airport assoc with id";
-                return res.status(400).json(errors)
-            } else {
-                res.json(airports[0])
-            }
-        })
+        .findOne({_id: req.params.airport_id })
+        // .findById(req.params.airport_id)
+        .populate('reviews')
+        // .populate('reviews', 'review')
+        .then(airport => { res.json(airport) })
 })
 
 module.exports = router;
