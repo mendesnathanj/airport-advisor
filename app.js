@@ -20,8 +20,10 @@ app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 
 const users = require("./routes/api/users");
+const airports = require("./routes/api/airports");
 
 app.use("/api/users", users);
+app.use("/api/airports", airports);
 
 
 const passport = require('passport');

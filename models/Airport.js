@@ -28,7 +28,13 @@ const AirportSchema = new Schema({
 
   long: {
     type: Number
+  }, 
+
+  reviews: {
+    type: Schema.Types.ObjectId,
+    ref: 'Review'
   }
+
 });
 
 const Airport = mongoose.model("airport", AirportSchema);
