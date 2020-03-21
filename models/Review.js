@@ -6,7 +6,7 @@ const ReviewSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
-    airport_id: {
+    airport: {
         type: Schema.Types.ObjectId,
         ref: 'airports'
     },
@@ -14,32 +14,33 @@ const ReviewSchema = new Schema({
         type: String,
         required: true
     },
-    // ratings: {
-    //     transportation: {
-    //         type: Number,
-    //     },
-    //     restaurants: {
-    //         type: Number,
-    //     },
-    //     waiting_hall: {
-    //         type: Number,
-    //     },
-    //     wifi_charging: {
-    //         type: Number,
-    //     },
-    //     sleepability: {
-    //         type: Number,
-    //     },
-    //     cleanliness: {
-    //         type: Number,
-    //     },
-    //     security: {
-    //         type: Number,
-    //     },
-    //     general_score: {
-    //         type: Number,
-    //     }
-    // },
+    ratings: {
+        transportation: {
+            type: Number,
+        },
+        restaurants: {
+            type: Number,
+        },
+        waiting_hall: {
+            type: Number,
+        },
+        wifi_charging: {
+            type: Number,
+        },
+        sleepability: {
+            type: Number,
+        },
+        cleanliness: {
+            type: Number,
+        },
+        security: {
+            type: Number,
+        },
+        general_score: {
+            type: Number,
+            required: true
+        }
+    },
     date: {
         type: Date,
         default: Date.now
