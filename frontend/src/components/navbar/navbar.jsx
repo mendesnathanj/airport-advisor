@@ -11,6 +11,8 @@ const Navbar = props => {
   if (props.loggedIn) {
     navLinks = (
       <ul className="navbar-list">
+        <li onClick={() => props.openModal('new-review')} className="navlink">New Review</li>
+        <li onClick={() => props.openModal('edit-review')} className="navlink">Edit Review</li>
         <li onClick={ () => props.logout() } className="navlink">Logout</li>
         { searchBar }
       </ul>
@@ -20,7 +22,8 @@ const Navbar = props => {
       <ul className="navbar-list">
         <li onClick={ () => props.openModal('login') } className="navlink">Login</li>
         <li onClick={() => props.openModal('signup')} className="navlink">Signup</li>
-        <li onClick={() => props.openModal('review')} className="navlink">Review</li>
+        <li onClick={() => props.openModal('new-review')} className="navlink">New Review</li>
+        <li onClick={() => props.openModal('edit-review')} className="navlink">Edit Review</li>
         { searchBar }
       </ul>
     );

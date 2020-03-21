@@ -2,7 +2,7 @@ import * as APIUtil from '../utils/review_api_util';
 
 
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
-export const DELETE_REVIEW = "DELETE_REVIEW";
+export const REMOVE_REVIEW = "REMOVE_REVIEW";
 
 
 const receiveReview = review => ({
@@ -10,8 +10,8 @@ const receiveReview = review => ({
   review
 });
 
-const deleteReview = id => ({
-  type: DELETE_REVIEW,
+const removeReview = id => ({
+  type: REMOVE_REVIEW,
   id
 });
 
@@ -31,5 +31,5 @@ export const updateReview = review => dispatch =>
 // RECEIVED FROM BACKEND
 export const deleteReview = id => dispatch =>
   APIUtil.deleteReview(id)
-    .then(id => dispatch(deleteReview(id)))
+    .then(id => dispatch(removeReview(id)))
     .catch(err => console.log(err))
