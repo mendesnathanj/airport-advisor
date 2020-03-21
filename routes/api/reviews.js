@@ -55,7 +55,7 @@ router.post('/',
 
         const newReview = new Review({
             user: req.user.id,
-            airport_id: req.body.airport_id,
+            airport: req.body.airport_id,
             review: req.body.review,
             // ratings: {
             //     transportation: req.body.ratings.transportation,
@@ -76,8 +76,8 @@ router.post('/',
             
             // res.json(newReview);
         
-            Airport.findOne({_id: newReview.airport_id})
-            // Airport.findById(newReview.airport_id)
+            // Airport.findOne({id: newReview.airport})
+            Airport.findById(req.body.airport_id)
                 .then((airport) => {
                     if (airport) {
                         airport.reviews.push(newReview);
