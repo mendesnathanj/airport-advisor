@@ -26,7 +26,7 @@ const excludedCats = [
 ];
 
 const considerInclude = ["small_airport", "medium_airport"]
-const data = [];
+let data = [];
 
 
 fs.createReadStream("./airport-codes.csv")
@@ -50,6 +50,7 @@ fs.createReadStream("./airport-codes.csv")
           // newAirport.populate('reviews')
           
           data.push(newAirport);
+          
           // newAirport.save()
         };
 

@@ -69,29 +69,32 @@ router.post('/',
         // const newReview = new Review(req.body)
         // newReview.user = req.user.id
 
-        newReview.save((err, newReview) => {
+        // IMPORTANT
+        // newReview.save((err, newReview) => {
             
-            // res.json(newReview);
+        //     res.json(newReview);
         
-            // Airport.findOne({id: newReview.airport})
-            Airport.findById(req.body.airport_id)
-                .then((airport) => {
-                    if (airport) {
-                        airport.reviews.push(newReview);
-                        airport.save()
-                        // .then(updatedAirport => {res.json(updatedAirport)})
-                        res.json(newReview);
+        //     // Airport.findOne({id: newReview.airport})
+        //     Airport.findById(req.body.airport_id)
+        //         .then((airport) => {
+        //             if (airport) {
+        //                 airport.reviews.push(newReview);
+        //                 airport.save();
+        //                 // .then(updatedAirport => {res.json(updatedAirport)})
+        //                 // res.json(newReview);
                         
-                        // airport
-                        //     .save()
-                        //     .then(updatedAirport => res.json(updatedAirport))
-                    } else (res.json({message: "no airport found"}))
-                })
+        //                 // airport
+        //                 //     .save()
+        //                 //     .then(updatedAirport => res.json(updatedAirport))
+        //             } else (res.json({message: "no airport found"}))
+        //         })
             
-                .catch((err) => {
-                    res.status(500).json({err})
-                })
-        })
+        //         .catch((err) => {
+        //             res.status(500).json({err})
+        //         })
+        // })
+
+        newReview.save().then(review => res.json(review)).catch(err => {res.status(500).json(err)})
       
 
             

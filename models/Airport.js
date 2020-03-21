@@ -53,13 +53,13 @@ AirportSchema.virtual('review_count').get(function() {
   return this.reviews.length;
 })
 
-AirportSchema.virtual('avg_rating_transportation').get(function() {
-  let avg = 0;
-  this.reviews.ratings.forEach(rat => {
-    avg += rat.transportation;
-  })
-  return avg;
-})
+// AirportSchema.virtual('avg_rating_transportation').get(function() {
+//   let avg = 0;
+//   this.reviews.ratings.forEach(rat => {
+//     avg += rat.transportation;
+//   })
+//   return avg;
+// })
 
 const Airport = mongoose.model("airport", AirportSchema);
 module.exports = Airport;
