@@ -6,7 +6,7 @@ class Textbox extends React.Component {
     super(props);
 
     this.maxLength = 666;
-    this.state = { wordsLeft: 666 };
+    this.state = { wordsLeft: 666 - this.props.review.length };
     this.handleInput = this.handleInput.bind(this);
     this.checkCharLimit = this.checkCharLimit.bind(this);
   }

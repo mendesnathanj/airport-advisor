@@ -31,30 +31,23 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.ratings.general_score === 0) {
-      alert('Please add a value for the general score b-b-b-baka!!!');
+    if (this.state.ratings.general_score === null) {
+      alert('Please add a value for the general score!');
       return;
     } else if (this.state.review.length < 6) {
-      alert('Write a longer review b-b-b-baka!!!');
+      alert('Reviews must be at least 6 characters long!');
       return;
     } else if (this.state.review.length > 666) {
-      alert('Write a shorter review b-b-b-baka!!!');
+      alert('Reviews can be at most 666 characters!');
       return;
     }
-    const review = this.state;
-    let evaluatedRatings = review.ratings;
-    // for (let [category, value] of Object.entries(evaluatedRatings))
-    //   if (value === 0) evaluatedRatings[category] = null;
-
-    review.ratings = evaluatedRatings;
 
     this.props
-      .action(review)
+      .action(this.state)
       .then(() => this.props.closeModal());
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="review-form-container">
         <form onSubmit={this.handleSubmit} className="review-form">
