@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const async = require("async");
+const Review = require("./Review");
 
 const AirportSchema = new Schema(
   {
@@ -36,7 +38,8 @@ const AirportSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "review"
       }
-    ]
+    ],
+
   },
 
   {
@@ -49,17 +52,30 @@ const AirportSchema = new Schema(
   }
 );
 
-AirportSchema.virtual('review_count').get(function() {
+
+AirportSchema.virtual("review_count").get(function() {
   return this.reviews.length;
+});
+
+AirportSchema.virtual('avg_score').get(function() {
+  let avg_scores = {};
+
+  this.reviews.forEach((review) => {
+    Object.keys(review.ratings).forEach(cat => {
+      avg_scores[cat] = avg_scores[cat] || 0; 
+      avg_scores[cat] += review.ratings[cat]
+    })
+  })
+  
+  Object.keys(avg_scores).forEach( cat => {
+    avg_scores[cat] /= this.review_count
+  })
+
+  return avg_scores;
+
 })
 
-// AirportSchema.virtual('avg_rating_transportation').get(function() {
-//   let avg = 0;
-//   this.reviews.ratings.forEach(rat => {
-//     avg += rat.transportation;
-//   })
-//   return avg;
-// })
+
 
 const Airport = mongoose.model("airport", AirportSchema);
 module.exports = Airport;
