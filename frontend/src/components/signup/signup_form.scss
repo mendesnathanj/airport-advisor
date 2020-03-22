@@ -1,0 +1,40 @@
+.signup {
+    background-color: rgb(245, 245, 245);
+    display: flexbox;
+    padding: 30px;
+    min-width: 300px;
+    border-radius: 6px;
+    text-align: center;
+}
+.header {
+    display: inline-block;
+    font-size: 24px;
+    color: black;
+    font-weight: 550;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+    
+}
+.signup-input {
+    display: inline-block;
+    padding: 10px;
+    color: gray;
+    background-color: white;
+    height: 30px;
+    width: 200px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: none;
+}
+.submit-signup {
+    background-color: rgb(245, 245, 245);
+    display: inline-block;
+    border: rgb(84, 145, 196) solid;
+    color: rgb(84, 145, 196);
+    font-size: 18px;
+    border-width: .5mm;
+    min-height: 32px;
+    min-width: 90px;
+    border-radius: 3px;;
+}

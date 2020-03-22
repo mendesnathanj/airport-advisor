@@ -8,12 +8,11 @@ class LoginForm extends React.Component {
 
     //may have to change depending on column names
     this.state = {
-      username: "username",
-      password: "password",
-      errors: ""
+      username: "",
+      password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+    // this.renderErrors = this.renderErrors.bind(this);
   }
 
   handleSubmit(e) {
@@ -22,6 +21,7 @@ class LoginForm extends React.Component {
         username: this.state.username,
         password: this.state.password
     }
+    this.props.closeModal();
     this.props.login(user);
   }
 
@@ -31,37 +31,40 @@ class LoginForm extends React.Component {
         [field]: e.currentTarget.value
       });
   }
-  renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
-    }
+//   renderErrors() {
+//     return(
+//       <ul>
+//         {Object.keys(this.state.errors).map((error, i) => (
+//           <li key={`error-${i}`}>
+//             {this.state.errors[error]}
+//           </li>
+//         ))}
+//       </ul>
+//     );
+//     }
     render() {
         return (
-          <div>
-            <form onSubmit={this.handleSubmit}>
+          <div className="login">
+            <header className="header">Login</header>
+            <form onSubmit={this.handleSubmit} className="login-form">
               <input
+                className="login-input"
                 type="text"
                 value={this.state.email}
                 onChange={this.update("username")}
-                placeholder="username"
+                placeholder="Username"
               />
               <br />
               <input
+                className="login-input"
                 type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
-                placeholder="password"
+                placeholder="Password"
               />
               <br />
-              <input type="submit" value="Submit" />
-              {this.renderErrors()}
+              <input className="submit-login" type="submit" value="Login" />
+              {/* {this.renderErrors()} */}
             </form>
             {/* <button>Create a button to open the sign up modal</button> */}
           </div>
