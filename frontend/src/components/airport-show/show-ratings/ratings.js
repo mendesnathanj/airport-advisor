@@ -7,14 +7,11 @@ import ShowCircle from './show-circles';
 class ShowRating extends React.Component {
     render() {
     let circles = [];
-    let value = 1;
 
     for (let i = 0; i < 5; i++) {
       circles.push(
         <ShowCircle/>
       );
-
-      value -= 1;
     }
 
     return (

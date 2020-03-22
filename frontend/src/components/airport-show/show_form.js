@@ -5,13 +5,17 @@ import ShowRating from './show-ratings/ratings'
 
 class ShowForm extends React.Component {    
     componentDidMount() {
-        // get the airport info from airport id
+        debugger
+        this.props.fetchAirport(this.props.match.params.airportId)
     }
     render () {
+        const { airport } = this.props
+        if (!this.props.airport) return null;
         return (
             <div className="show-page">
                 <header className="show-summary">
-                    <h1>Airport Name</h1>
+
+                    <h1>{airport.name}</h1>
                     <h1><ShowRating/></h1>
                     <h1>Airport Overall Ratings</h1>
                     <h1>Airport Individual Ratings</h1>

@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
-import { fecthAirport } from '../../actions/airport_actions';
+import { fetchAirport } from '../../actions/airport_actions';
 import ShowForm from './show_form';
+import { withRouter } from "react-router-dom";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        reviews: Object.values()
+        // reviews: Object.values(state.airport_id.reviews),
+        airport: state.airports[ownProps.match.params.airportId]
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return{
-        fecthAirport: (airport_id) => dispatch(fecthAirport(airport_id))
+        fetchAirport: (airport_id) => dispatch(fetchAirport(airport_id))
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ShowForm);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(ShowForm));
