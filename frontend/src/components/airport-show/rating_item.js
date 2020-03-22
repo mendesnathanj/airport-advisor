@@ -21,6 +21,7 @@ const RatingItem = (props) => {
         <ul>
           <li className="rating-text">{props.review.review}</li>
         </ul>
+        <div className="op-rating-box">
         <div className="optional-rating">
           <span className="sub-rating">
             Transportation{" "}
@@ -53,6 +54,7 @@ const RatingItem = (props) => {
           <span className="sub-rating">
             Security <RatingContainer num={rev_ratings.security} />
           </span>
+        </div>
         </div>
       </div>
     );
