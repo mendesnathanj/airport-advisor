@@ -1,0 +1,46 @@
+.rating-item {
+    display: flexbox;
+    text-align: left;
+    border-bottom: grey solid;
+    border-width: .8px;
+    width: 100%;
+    margin-top: 20px;
+}
+.main-rating {
+    display: flexbox;
+    border-width: 5px;
+    width: 60%;
+    vertical-align: top;
+
+}
+.rating-header {
+    display: inline-block;
+    vertical-align: 15%;
+}
+
+.rating-date {
+    display: inline-block;
+    font-size: 14px;
+    color: grey;
+    vertical-align: 30%;
+}
+.rating-text {
+    padding-top: 15px;    
+    display: inline-block;
+}
+.rating-score {
+    display: inline-block;
+    vertical-align: bottom;
+    transform: scale(0.7, 0.7);
+}
+.optional-rating {
+    transform: scale(0.7, 0.7);
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    font-size: 20px;
+    padding: 5px;
+}
+
+
+
