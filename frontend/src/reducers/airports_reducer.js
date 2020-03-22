@@ -12,8 +12,9 @@ export default function(initialState = {}, action) {
       return Object.assign({}, nextState, { [airport._id]: airport });
     case RECEIVE_REVIEW:
       const review = action.review.data;
-      const port = nextState.airports[review.airport_id];
+      const port = nextState[review.airport];
       port.reviews.push(review);
+
       return Object.assign({}, nextState, { [port._id]: port });
     default:
       return initialState;
