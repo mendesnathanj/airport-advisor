@@ -1,15 +1,51 @@
+$font-stack: 'Sen', sans-serif;
+
 .show-page {
     display: flexbox;
-    text-align: center;
-    font-family: sans-serif;
-    // background-color: rgb(245, 245, 245);
-    margin: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: $font-stack;
+    padding-top: 120px;
+    background-color: rgb(245, 245, 245);
 }
+
+
+.show-header-container {
+    text-align: center
+}
+
+.show-title {
+    font-weight: 700;
+    margin-bottom: 1em;
+    display: block;
+}
+
 .show-summary {
-    display: inline;
     font-size: 24px;
+    margin-bottom: 3em;
 }
+.rating-average {
+    display: inline-block;
+}
+
+.rating-title {
+    display: inline-block;
+    margin-bottom: 0.25em;
+}
+.main-score {
+    display: inline-block;
+    padding: 5px;
+    vertical-align: middle;
+}
+
 .show-body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.show-body-child {
     display: inline;
 }
 .show-review-item {
@@ -20,13 +56,55 @@
 }
 .review-btn {
     color: rgb(226, 86, 51);
-    font-size: 16px;
+    background-color: rgb(245, 245, 245);
+    font-size: 0.75em;
+    font-family: $font-stack;
+    font-weight: 700;
     padding: 7px;
     border: rgb(226, 86, 51) solid;
     border-width: .5mm;
-    min-height: 32px;
-    min-width: 90px;
-    border-radius: 3px;;
-    margin: 10px;
+    min-height: 45px;
+    min-width: 125px;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
 
+.review-btn:hover {
+    background-color: rgb(226, 86, 51);
+    color: #fff;
+}
+.optional-reviews {
+    display: flex;
+    justify-content: center;
+}
+
+.op-reviews {
+    transform: scale(0.8, 0.8);
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.op-reviews > span {
+    display: block;
+    margin-bottom: 0.8em;
+}
+
+.op-reviews:first-child {
+    padding-right: 2.5em;
+}
+
+.reviews-title-container {
+    text-align: left;
+}
+
+.reviews-title {
+    color: #333;
+    font-size: 1.5em;
+    font-weight: 700;
 }
