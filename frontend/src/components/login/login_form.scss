@@ -43,6 +43,25 @@ $submit-btn-color: #38A3D9;
     font-family: $font-stack;
     font-weight: 700;
     background-color: rgb(245, 245, 245);
+    display: inline-block;
+    border: rgb(84, 145, 196) solid;
+    color: rgb(84, 145, 196);
+    font-size: 18px;
+    border-width: .5mm;
+    min-height: 32px;
+    min-width: 90px;
+    border-radius: 3px;;
+}
+.errors {
+    color: crimson;
+    font-size: 13px;
+    list-style-type: none;
+    padding-left: 0px;
+    margin: 0px;
+}
+
+.errors p {
+    margin: 0px;
     border: 2px solid $submit-btn-color;
     color: $submit-btn-color;
     font-size: 1.25em;

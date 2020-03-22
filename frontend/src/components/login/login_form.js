@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './login_form.scss';
+import { RECEIVE_USER_SIGN_IN } from '../../actions/session_actions';
+
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -8,10 +10,21 @@ class LoginForm extends React.Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      errors: {}
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.renderErrors = this.renderErrors.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
+
+    // Close modal when user is loged in
+    let modalOpen = true;
+    window.store.subscribe(() => {
+      if(window.store.getState().session.isAuthenticated && modalOpen) {
+        modalOpen = false;
+        props.closeModal();
+      }
+    });
   }
 
   handleSubmit(e) {
@@ -20,7 +33,6 @@ class LoginForm extends React.Component {
         username: this.state.username,
         password: this.state.password
     }
-    this.props.closeModal();
     this.props.login(user);
   }
 
@@ -29,19 +41,26 @@ class LoginForm extends React.Component {
       this.setState({
         [field]: e.currentTarget.value
       });
-  }
-//   renderErrors() {
-//     return(
-//       <ul>
-//         {Object.keys(this.state.errors).map((error, i) => (
-//           <li key={`error-${i}`}>
-//             {this.state.errors[error]}
-//           </li>
-//         ))}
-//       </ul>
-//     );
-//     }
+    }
+
+    renderErrors() {
+      console.log('errors should be in login form renderErrors', this.props.errors);
+      console.log('props.error', this.props.errors)
+      return(
+        <ul className='errors'>
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li key={`error-${i}`}>
+              {this.props.errors[error]}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+
     render() {
+      console.log('errors in render part of login form', this.state.errors)
+
         return (
           <div className="login">
             <h1 className="header">Login</h1>
@@ -63,7 +82,7 @@ class LoginForm extends React.Component {
               />
               <br />
               <input className="submit-login" type="submit" value="Login" />
-              {/* {this.renderErrors()} */}
+              {this.renderErrors()}
             </form>
             {/* <button>Create a button to open the sign up modal</button> */}
           </div>
