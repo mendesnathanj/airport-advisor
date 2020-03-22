@@ -4,10 +4,13 @@ import { login } from '../../actions/session_actions';
 import { closeModal } from '../../actions/modal_actions';
 
 
-const mapStateToProps = (state) => ({
-      formType: "login",
-      errors: state.errors.session
-});
+const mapStateToProps = (state) => {
+    console.log('state.errors.session', state)
+      return {
+        formType: "login",
+        errors: state.errors.session,
+    }
+};
 
 const mapDispatchToProps = (dispatch) => ({
     login: user => dispatch(login(user)),
