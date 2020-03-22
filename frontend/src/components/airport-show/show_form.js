@@ -10,7 +10,6 @@ class ShowForm extends React.Component {
     render () {
         const { airport } = this.props
         if (!this.props.airport) return null;
-        console.log(airport)
         return (
           <div className="show-page">
             <header className="show-summary">
@@ -22,6 +21,7 @@ class ShowForm extends React.Component {
               </h1>
               <h1>Overall Rating</h1>
               <h1>{airport.avg_score.general_score}</h1>
+              <h1>{airport.review_count} ratings</h1>
               <h1>Airport Individual Ratings</h1>
               <div className="optional-reviews">
                 <ul>

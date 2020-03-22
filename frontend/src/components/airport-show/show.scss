@@ -4,6 +4,7 @@
     font-family: sans-serif;
     // background-color: rgb(245, 245, 245);
     margin: 15px;
+    background-color: cadetblue;
 }
 .show-summary {
     display: inline;
@@ -28,5 +29,16 @@
     min-width: 90px;
     border-radius: 3px;;
     margin: 10px;
+
+}
+.rating-item {
+    display: flexbox;
+    text-align: center;
+}
+.main-rating {
+    display: inline-block;
+    border: red solid;
+    border-width: 5px;
+    width: 60%;
 
 }

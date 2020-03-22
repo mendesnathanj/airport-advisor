@@ -1,12 +1,13 @@
 import React from 'react';
+import './show.scss'
 
 const RatingItem = (props) => {
     // debugger
     return (
       <div className="rating-item">
         <ul className="main-rating">
-          <li className="rating-header">{props.review.user}</li>
-          <li className="rating-bar">Date Written</li>
+          <li className="rating-header">{props.review.user.username}</li>
+          <li className="rating-bar">written</li>
           <li className="rating-header">{props.review.date.substring(0, 10)}</li>
           <li className="rating-bar">Overall ratings</li>
           <li>{props.review.ratings.general_score}</li>
