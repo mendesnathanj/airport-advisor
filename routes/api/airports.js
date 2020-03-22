@@ -8,34 +8,27 @@ router.get("/", (req, res) => {
     let result = {};
     Airport
       .find()
-      .sort({ code: 1 }) // sort by code alphabetically
+      .sort({ code: 1 }) 
+      .populate("reviews")
       .then(airports => {
         airports.forEach(airport => {
-          // airport.populate('reviews', 'review')
           let id = airport._id;
           result[id] = airport;
         });
         return result;
       })
       
-      .then(test => res.json(test))
-      .catch(err => res.status(400).json(err))
+      .then(result => res.json(result))
+      .catch(err => res.status(400).json({msg: "error is here"}))
 });
 
-// router.get("/", (req, res) => {
-//   Airport
-//     .find()
-//     .then(airports => {res.json(airports)})
-//     .catch(err => res.status(400).json(err))
-// });
+
 
 router.get("/:airport_id", (req, res) => {
     const errors = {};
 
     Airport
-        // .findOne({_id: req.params.airport_id })
         .findById(req.params.airport_id)
-        // .populate('reviews', 'review')
         .populate('reviews')
         .then(airport => { res.json(airport) })
 })

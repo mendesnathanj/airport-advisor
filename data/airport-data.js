@@ -57,7 +57,7 @@ fs.createReadStream("./airport-codes.csv")
     })
 
     .on("end", () => {
-      const testData = data.slice(0, 4);
+      const testData = data.slice(0, 10);
       console.log(testData)
       testData.forEach(airport => {
         airport.save();
