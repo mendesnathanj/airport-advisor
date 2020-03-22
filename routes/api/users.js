@@ -49,7 +49,7 @@ router.post('/signup', (req, res) => {
 })
 
 function getToken(user) {
-    const payload = { id: user.id, name: user.name };
+    const payload = { id: user.id, username: user.username };
 
     return jwt.sign(
         payload,

@@ -8,11 +8,10 @@ const Navbar = ({ location, loggedIn, currentUser, logout, openModal }) => {
   const searchBar = location.pathname === '/' ? null : <li><SearchBarContainer /></li>;
 
   let navLinks;
-
   if (loggedIn) {
     navLinks = (
       <ul className="navbar-list">
-        <li className="navlink username">{ currentUser.id }</li>
+        <li className="navlink username">Welcome, { currentUser.username }</li>
         <li onClick={ () => logout() } className="navlink">Logout</li>
         { searchBar }
       </ul>
