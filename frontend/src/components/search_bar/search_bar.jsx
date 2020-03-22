@@ -20,6 +20,7 @@ class SearchBar extends React.Component {
 
   search() {
     if (this.state.searchTerm === '') return;
+    if (this.state.searchItems.length === 0) return;
 
     this.props.history.push({
       pathname: '/airports',
