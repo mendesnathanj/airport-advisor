@@ -3,27 +3,23 @@ import SearchBarContainer from '../search_bar/search_bar_container';
 import { Link } from 'react-router-dom';
 import './Navbar.scss';
 
-const Navbar = props => {
-  const navbarTheme = props.match.path === '/' ? 'light' : 'dark';
-  const searchBar = props.match.path === '/' ? null : <li><SearchBarContainer /></li>;
+const Navbar = ({ location, loggedIn, logout, openModal }) => {
+  const navbarTheme = location.pathname === '/' ? 'light' : 'dark';
+  const searchBar = location.pathname === '/' ? null : <li><SearchBarContainer /></li>;
 
   let navLinks;
-  if (props.loggedIn) {
+  if (loggedIn) {
     navLinks = (
       <ul className="navbar-list">
-        <li onClick={() => props.openModal('new-review')} className="navlink">New Review</li>
-        <li onClick={() => props.openModal('edit-review')} className="navlink">Edit Review</li>
-        <li onClick={ () => props.logout() } className="navlink">Logout</li>
+        <li onClick={ () => logout() } className="navlink">Logout</li>
         { searchBar }
       </ul>
     );
   } else {
     navLinks = (
       <ul className="navbar-list">
-        <li onClick={ () => props.openModal('login') } className="navlink">Login</li>
-        <li onClick={() => props.openModal('signup')} className="navlink">Signup</li>
-        <li onClick={() => props.openModal('new-review')} className="navlink">New Review</li>
-        <li onClick={() => props.openModal('edit-review')} className="navlink">Edit Review</li>
+        <li onClick={ () => openModal('login') } className="navlink">Login</li>
+        <li onClick={() => openModal('signup')} className="navlink">Signup</li>
         { searchBar }
       </ul>
     );
