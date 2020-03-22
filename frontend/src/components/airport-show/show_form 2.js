@@ -4,7 +4,7 @@ import RatingItem from './rating_item';
 import ShowRating from './show-ratings/ratings'
 import RatingContainer from '../airport_results/rating_container/rating_container'
 
-class ShowForm extends React.Component {
+class ShowForm extends React.Component {    
     componentDidMount() {
         this.props.fetchAirport(this.props.match.params.airportId)
     }

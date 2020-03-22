@@ -1,5 +1,80 @@
+$link-blue: #0197D8;
+
 .airport-results {
-  padding-top: 200px;
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 900px;
+  font-family: 'Sen', sans-serif;
+}
+
+.results-header {
+  font-size: 1.5em;
+}
+
+.term {
+  font-weight: 700;
+}
+
+.underline {
+  display: block;
+  width: 100%;
+  height: 1px;
+  transform: scaleY(1.5);
+  background-color: #ccc;
+  margin-top: 4px;
+}
+
+.header-container {
+  margin-bottom: 3em;
+}
+
+.results-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.item-title-container {
+  display: flex;
+}
+
+.title-item {
+  padding-right: 4px;
+  font-weight: 700;
+  font-size: 1.05em;
+  text-decoration: none;
+}
+
+.title-item:last-child {
+  color: #777;
+}
+
+.airport-item-title {
+  color: $link-blue;
+}
+
+.info-wrapper {
+  margin-bottom: 3em;
+}
+
+.info-container {
+  display: flex;
+  align-items: center;
+  margin-top: 0.75em;
+  padding-left: 1.1em;
+  padding-bottom: 3em;
+}
+
+.info-container > .circle-list-container {
+  margin: 0 0.5em;
+}
+
+.info-rating-text {
+  font-weight: 700;
+  color: #333;
+}
+
+.review-count {
+  color: #777;
 }
 
 

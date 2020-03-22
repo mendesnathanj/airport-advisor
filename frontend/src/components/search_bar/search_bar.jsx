@@ -20,11 +20,14 @@ class SearchBar extends React.Component {
 
   search() {
     if (this.state.searchTerm === '') return;
+    if (this.state.searchItems.length === 0) return;
 
     this.props.history.push({
       pathname: '/airports',
       search: `?term=${this.state.searchTerm}&query=${this.state.searchItems.map(airport => airport._id).join(',')}`
     });
+
+    this.setState({ searchTerm: '', searchItems: [] });
   }
 
   handleKeyDown(e) {

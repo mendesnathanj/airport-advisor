@@ -10,17 +10,21 @@ const validateReviewInput = require('../../validations/reviews');
 
 router.get('/', (req, res) => {
     Review.find()
-        .sort({ date: -1 })
-        .then(reviews => res.json(reviews))
-        .catch(err => res.status(404).json({ noreviewsfound: 'No reviews found' }));
+      .populate("user", "username")
+      .sort({ date: -1 })
+      .then(reviews => res.json(reviews))
+      .catch(err =>
+        res.status(404).json({ noreviewsfound: "No reviews found" })
+      );
 });
 
 router.get('/:id', (req, res) => {
     Review.findById(req.params.id)
-        .then(review => res.json(review))
-        .catch(err =>
-            res.status(404).json({ noreviewfound: 'No review found with that ID' })
-        );
+      .populate("user", "username")
+      .then(review => res.json(review))
+      .catch(err =>
+        res.status(404).json({ noreviewfound: "No review found with that ID" })
+      );
 });
 
 router.delete('/:id', (req, res) => {
@@ -41,7 +45,7 @@ router.patch('/:id', (req, res) => {
 
 router.post(
     '/',
-    passport.authenticate('jwt', { session: false }), 
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validateReviewInput(req.body);
 
@@ -67,6 +71,7 @@ router.post(
 
         newReview
           .save()
+          .then(t => t.populate('user', 'username').execPopulate())
           .then(savedReview => {
               if (savedReview) {
                 Airport
@@ -80,7 +85,7 @@ router.post(
                     }
                 })
               }
-            return savedReview; 
+            return savedReview;
             })
           .then(result => {
             res.json(result);
@@ -88,32 +93,9 @@ router.post(
           .catch(err => {
             res.status(500).json({ err: "didn't work" });
           });
-               
+
     }
 );
-
-// ORIGINALLY FROM DILAN
-// Airport.findById(req.body.airport_id)
-//     .then(airport => {
-//         const newReview = new Review({
-//             user: req.user.id,
-//             airport: req.body.airport_id,
-//             review: req.body.review,
-//             ratings: {
-//                 transportation: req.body.ratings.transportation,
-//                 restaurants: req.body.ratings.restaurants,
-//                 waiting_hall: req.body.ratings.waiting_hall,
-//                 wifi_charging: req.body.ratings.wifi_charging,
-//                 sleepability: req.body.ratings.sleepability,
-//                 cleanliness: req.body.ratings.cleanliness,
-//                 security: req.body.ratings.security,
-//                 general_score: req.body.ratings.general_score
-//             }
-//         });
-//         newReview.save().then(review => res.json(review));
-//     })
-                  
-
 
 module.exports = router;
 

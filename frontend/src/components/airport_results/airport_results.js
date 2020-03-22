@@ -8,17 +8,23 @@ class AirportResults extends React.Component {
   }
 
   render() {
-    if (this.props.airports.filter(airport => airport !== undefined).length === 0) return null;
+    const { airports, searchTerm } = this.props;
 
-    console.log(this.props.airports);
+    if (searchTerm === undefined || searchTerm === '') return null;
+    if (airports.filter(airport => airport !== undefined).length === 0) return null;
+
     const airportItems = this.props.airports.map((airport, i) => (
       <div key={airport._id}>
         <AirportItem index={i + 1} airport={airport} />
       </div>
     ));
+
     return (
       <div className="airport-results">
-        <h1 className="results-header">Results for "{ this.props.searchTerm }"</h1>
+        <div className="header-container">
+          <h1 className="results-header">Results for <span className="term">"{this.props.searchTerm}"</span></h1>
+        <span className="underline"></span>
+        </div>
         <div className="results-container">
           { airportItems }
         </div>
