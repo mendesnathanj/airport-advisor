@@ -58,17 +58,17 @@ console.log("begin")
 
 const pickRandomUser = () => {
     let randomUser;
+
     User.count().exec(function (err, count) {
         let random = Math.floor(Math.random() * count);
-        // return User.findOne().skip(random)
-        User.findOne().skip(random).exec(
+
+        return User.findOne().skip(random).exec(
             function (err, result) {
-                // return result;
-                // console.log(result)
-                randomUser = result;
-            }
-        )
-    })
+                console.log(result)
+                return result
+            })
+        })
+        .then(user => {randomUser = user})
     return randomUser;
 }
 

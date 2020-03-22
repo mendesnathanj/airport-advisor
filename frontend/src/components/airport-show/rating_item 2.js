@@ -1,15 +1,15 @@
 import React from 'react';
 import './rating_item.scss'
 import RatingContainer from "../airport_results/rating_container/rating_container";
-import EditReviewFormContainer from "../review_form/edit_review_form_container";
 
 const RatingItem = (props) => {
     const rev_ratings = props.review.ratings
+    // debugger
     return (
       <div className="rating-item">
         <ul className="main-rating">
           <li className="rating-header">
-            {props.review.user.username}
+            Authored by: {props.review.user.username}
           </li>
           <li className="rating-score">
             <RatingContainer num={rev_ratings.general_score} />
@@ -36,7 +36,7 @@ const RatingItem = (props) => {
         </div>
         <div className="optional-rating">
           <span className="sub-rating">
-            Waiting Hall <RatingContainer num={rev_ratings.waiting_hall} />
+            Waitng Hall <RatingContainer num={rev_ratings.waiting_hall} />
           </span>
           <span className="sub-rating">
             Wifi Charging <RatingContainer num={rev_ratings.wifi_charging} />
@@ -56,12 +56,6 @@ const RatingItem = (props) => {
           </span>
         </div>
         </div>
-        {/* <button
-          className="edit-btn"
-          onClick={() => this.props.openModal("edit-review")}
-        >
-          Edit Review
-        </button> */}
       </div>
     );
 

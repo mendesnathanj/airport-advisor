@@ -12,13 +12,11 @@ $font-stack: 'Sen', sans-serif;
 }
 
 .header {
-    display: inline-block;
-    font-size: 24px;
+    font-size: 2em;
     color: #333;
-    font-weight: 550;
-    font-family: sans-serif;;
-    margin-bottom: 20px;
-
+    font-weight: 700;
+    font-family: $font-stack;
+    margin-bottom: 3em;
 }
 
 .login-input, .signup-input {
