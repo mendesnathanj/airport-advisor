@@ -15,13 +15,19 @@ class SearchBar extends React.Component {
   }
 
   componentDidMount() {
-    // fetch airport names and codes later I think
+    this.props.fetchAirports();
   }
 
   search() {
-    // redirect to airport results page later
     if (this.state.searchTerm === '') return;
-    console.log('searching');
+    if (this.state.searchItems.length === 0) return;
+
+    this.props.history.push({
+      pathname: '/airports',
+      search: `?term=${this.state.searchTerm}&query=${this.state.searchItems.map(airport => airport._id).join(',')}`
+    });
+
+    this.setState({ searchTerm: '', searchItems: [] });
   }
 
   handleKeyDown(e) {

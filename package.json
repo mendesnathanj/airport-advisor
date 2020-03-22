@@ -31,11 +31,13 @@
     "csv-parse": "^4.8.8",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
     "file-system": "^2.2.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.5",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "split2": "^3.1.1",
     "validator": "^12.2.0"
   },
   "devDependencies": {
