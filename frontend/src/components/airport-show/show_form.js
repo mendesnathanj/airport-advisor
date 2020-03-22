@@ -3,14 +3,14 @@ import './show.scss'
 import RatingItem from './rating_item';
 import ShowRating from './show-ratings/ratings'
 
-class ShowForm extends React.Component {    
+class ShowForm extends React.Component {
     componentDidMount() {
         this.props.fetchAirport(this.props.match.params.airportId)
     }
     render () {
         const { airport } = this.props
         if (!this.props.airport) return null;
-        console.log(airport)
+
         return (
             <div className="show-page">
                 <header className="show-summary">
@@ -24,7 +24,7 @@ class ShowForm extends React.Component {
                 </header>
                 <br></br>
                 <div className="show-body">
-                    <ul> 
+                    <ul>
                         <li className="show-review-item"><RatingItem airport={ airport }/></li>
                         <br></br>
                         <li className="show-review-item"><RatingItem/></li>

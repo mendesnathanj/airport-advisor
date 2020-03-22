@@ -8,7 +8,7 @@ const RatingContainer = ({ num }) => {
 
   let circles = [];
   for (let i = 0; i < 5; i++) {
-    circles.push(<RatingCircle num={roundedNum} />);
+    circles.push(<RatingCircle key={i} num={roundedNum} />);
     roundedNum -= 1;
   }
 
