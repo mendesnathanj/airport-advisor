@@ -16,12 +16,17 @@ class SearchBar extends React.Component {
 
   componentDidMount() {
     // fetch airport names and codes later I think
+    this.props.fetchAirports();
   }
 
   search() {
     // redirect to airport results page later
     if (this.state.searchTerm === '') return;
-    console.log('searching');
+
+    this.props.history.push({
+      pathname: '/airports',
+      query: this.state.searchItems
+    });
   }
 
   handleKeyDown(e) {
@@ -45,6 +50,7 @@ class SearchBar extends React.Component {
   }
 
   render() {
+
     return (
       <div className="search-bar-container">
         <input

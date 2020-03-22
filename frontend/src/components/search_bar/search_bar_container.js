@@ -1,4 +1,6 @@
 import { connect } from "react-redux";
+import { withRouter } from 'react-router-dom';
+import { fetchAirports } from '../../actions/airport_actions';
 import SearchBar from './search_bar';
 
 const airports = [
@@ -90,9 +92,11 @@ const airports = [
 ];
 
 const mapStateToProps = state => ({
-  airports: airports
+  airports: Object.values(state.airports)
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  fetchAirports: () => dispatch(fetchAirports())
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchBar));
