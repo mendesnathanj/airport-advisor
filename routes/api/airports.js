@@ -6,10 +6,12 @@ const Airport = require("../../models/Airport");
 
 router.get("/", (req, res) => {
     let result = {};
-    Airport.find()
+    Airport
+      .find()
       .sort({ code: 1 }) // sort by code alphabetically
       .then(airports => {
         airports.forEach(airport => {
+          // airport.populate('reviews', 'review')
           let id = airport._id;
           result[id] = airport;
         });
