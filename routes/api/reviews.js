@@ -10,17 +10,21 @@ const validateReviewInput = require('../../validations/reviews');
 
 router.get('/', (req, res) => {
     Review.find()
-        .sort({ date: -1 })
-        .then(reviews => res.json(reviews))
-        .catch(err => res.status(404).json({ noreviewsfound: 'No reviews found' }));
+      .populate("user", "username")
+      .sort({ date: -1 })
+      .then(reviews => res.json(reviews))
+      .catch(err =>
+        res.status(404).json({ noreviewsfound: "No reviews found" })
+      );
 });
 
 router.get('/:id', (req, res) => {
     Review.findById(req.params.id)
-        .then(review => res.json(review))
-        .catch(err =>
-            res.status(404).json({ noreviewfound: 'No review found with that ID' })
-        );
+      .populate("user", "username")
+      .then(review => res.json(review))
+      .catch(err =>
+        res.status(404).json({ noreviewfound: "No review found with that ID" })
+      );
 });
 
 router.delete('/:id', (req, res) => {
@@ -67,6 +71,7 @@ router.post(
 
         newReview
           .save()
+          .then(t => t.populate('user', 'username').execPopulate())
           .then(savedReview => {
               if (savedReview) {
                 Airport
