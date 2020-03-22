@@ -70,7 +70,7 @@ class ShowForm extends React.Component {
             <div className="show-body">
               <div className="show-body-child">
                 {airport.reviews.map(review => (
-                  <RatingItem review={review} key={review._id} />
+                  <RatingItem review={review} key={review._id}/>
                 ))}
               </div>
             </div>
