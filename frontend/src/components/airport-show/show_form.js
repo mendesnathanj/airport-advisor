@@ -1,7 +1,6 @@
 import React from 'react';
 import './show.scss'
 import RatingItem from './rating_item';
-import ShowRating from './show-ratings/ratings'
 import RatingContainer from '../airport_results/rating_container/rating_container'
 
 class ShowForm extends React.Component {
@@ -14,48 +13,51 @@ class ShowForm extends React.Component {
         return (
           <div className="show-page">
             <header className="show-summary">
-              <h1>
-                {airport.name}, {airport.code}
-              </h1>
-              <span className="rating-average">
-                <h1 className="main-score">
-                  <RatingContainer num={airport.avg_score.general_score} />
+              <div className="show-header-container">
+                <h1 className="show-title">
+                  {airport.name} ({airport.code})
                 </h1>
-                <h1 className="main-score">{airport.review_count} ratings</h1>
-              </span>
+                <br />
+                <span className="rating-average">
+                  <h1 className="main-score">
+                    <RatingContainer num={airport.avg_score.general_score} />
+                  </h1>
+                  <h1 className="main-score">{airport.review_count} ratings</h1>
+                </span>
+              </div>
               <div className="optional-reviews">
-                <ul className="op-reviews">
+                <div className="op-reviews">
                   <span>
-                    Transportation{" "}
+                    <span className="rating-title">Transportation</span>
                     <RatingContainer num={airport.avg_score.transportation} />
                   </span>
                   <span>
-                    Restaurants{" "}
+                    <span className="rating-title">Restaurants</span>
                     <RatingContainer num={airport.avg_score.restaurants} />
                   </span>
                   <span>
-                    Waiting Hall{" "}
+                    <span className="rating-title">Waiting Hall</span>
                     <RatingContainer num={airport.avg_score.waiting_hall} />
                   </span>
                   <span>
-                    Wifi Charging{" "}
+                    <span className="rating-title">Wifi Charging</span>
                     <RatingContainer num={airport.avg_score.wifi_charging} />
                   </span>
-                </ul>
-                <ul className="op-reviews">
+                </div>
+                <div className="op-reviews">
                   <span>
-                    Sleepability{" "}
+                    <span className="rating-title">Sleepability</span>
                     <RatingContainer num={airport.avg_score.sleepability} />
                   </span>
                   <span>
-                    Cleanliness{" "}
+                    <span className="rating-title">Cleanliness</span>
                     <RatingContainer num={airport.avg_score.cleanliness} />
                   </span>
                   <span>
-                    Security{" "}
+                    <span className="rating-title">Security</span>
                     <RatingContainer num={airport.avg_score.security} />
                   </span>
-                </ul>
+                </div>
               </div>
               {!!this.props.currentUser ? (
                 <button
@@ -66,8 +68,12 @@ class ShowForm extends React.Component {
                 </button>
               ) : null}
             </header>
-            <br></br>
+            {/* <br></br> */}
             <div className="show-body">
+              <div className="reviews-title-container">
+                <h2 className="reviews-title">Reviews</h2>
+                <span className="underline"></span>
+              </div>
               <div className="show-body-child">
                 {airport.reviews.map(review => (
                   <RatingItem review={review} key={review._id}/>

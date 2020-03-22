@@ -91,7 +91,7 @@ router.post(
             res.json(result);
           })
           .catch(err => {
-            res.status(500).json({ err: "didn't work" });
+            res.status(500).json(err);
           });
 
     }

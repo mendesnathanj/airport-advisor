@@ -1,21 +1,20 @@
 .rating-item {
-    display: flexbox;
-    text-align: left;
-    border-bottom: grey solid;
-    border-width: .8px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ccc;
+    align-items: flex-start;
     width: 100%;
-    margin-top: 20px;
+    padding-bottom: 2em;
+    padding-top: 2em;
 }
 .main-rating {
-    display: flexbox;
+    display: flex;
     border-width: 5px;
-    width: 60%;
-    vertical-align: top;
-
+    align-items: center;
 }
 .rating-header {
-    display: inline-block;
-    vertical-align: 15%;
+    font-weight: 700;
+    color: #333;
 }
 
 .rating-date {
@@ -25,7 +24,7 @@
     vertical-align: 30%;
 }
 .rating-text {
-    padding-top: 15px;    
+    padding-top: 15px;
     display: inline-block;
 }
 .rating-score {
@@ -34,8 +33,8 @@
     transform: scale(0.7, 0.7);
 }
 .op-rating-box {
-    vertical-align: top;
     display: flex;
+    margin-left: -1.5em;
 }
 .optional-rating {
     transform: scale(0.7, 0.7);
@@ -44,16 +43,8 @@
     vertical-align: top;
     font-size: 20px;
 }
-.edit-btn {
-    color: rgb(226, 86, 51);
-    background-color: rgb(245, 245, 245);
-    font-size: 16px;
-    padding: 7px;
-    border: rgb(226, 86, 51) solid;
-    border-width: .5mm;
-    transform: scale(0.8, 0.8);
-    border-radius: 3px;;
-    margin: 10px;
+
+.sub-rating > .circle-list-container {
+    margin-top: 0.25em;
+    margin-left: -4px;
 }
-
-
