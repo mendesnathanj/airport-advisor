@@ -6,7 +6,6 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
 
-    //may have to change depending on column names
     this.state = {
       username: "",
       password: ""
@@ -45,7 +44,7 @@ class LoginForm extends React.Component {
     render() {
         return (
           <div className="login">
-            <header className="header">Login</header>
+            <h1 className="header">Login</h1>
             <form onSubmit={this.handleSubmit} className="login-form">
               <input
                 className="login-input"
