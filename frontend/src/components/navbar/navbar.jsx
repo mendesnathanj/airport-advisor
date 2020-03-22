@@ -7,6 +7,8 @@ const Navbar = props => {
   const navbarTheme = props.match.path === '/' ? 'light' : 'dark';
   const searchBar = props.match.path === '/' ? null : <li><SearchBarContainer /></li>;
 
+  // debugger;
+  console.log(props.match.path);
   let navLinks;
   if (props.loggedIn) {
     navLinks = (

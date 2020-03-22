@@ -1,4 +1,4 @@
-import { RECEIVE_AIRPORTS } from "../actions/airport_actions";
+import { RECEIVE_AIRPORTS, RECEIVE_AIRPORT } from "../actions/airport_actions";
 
 export default function(initialState = {}, action) {
   const nextState = Object.assign({}, initialState);
