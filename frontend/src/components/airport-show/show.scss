@@ -2,14 +2,29 @@
     display: flexbox;
     text-align: center;
     font-family: sans-serif;
-    // background-color: rgb(245, 245, 245);
-    margin: 15px;
+    padding-top: 120px;
+    background-color: rgb(245, 245, 245);
+    
 }
 .show-summary {
-    display: inline;
+    display: flexbox;
     font-size: 24px;
 }
+.rating-average {
+    display: inline-block;
+    text-align: left;
+}
+.main-score {
+    display: inline-block;
+    padding: 5px;
+}
 .show-body {
+    display: flexbox;
+    text-align: center;
+    margin-left: 27%;
+    width: 50%;
+}
+.show-body-child {
     display: inline;
 }
 .show-review-item {
@@ -20,6 +35,7 @@
 }
 .review-btn {
     color: rgb(226, 86, 51);
+    background-color: rgb(245, 245, 245);
     font-size: 16px;
     padding: 7px;
     border: rgb(226, 86, 51) solid;
@@ -28,5 +44,15 @@
     min-width: 90px;
     border-radius: 3px;;
     margin: 10px;
-
+}
+.optional-reviews {
+    display: flexbox;
+}
+.op-reviews {
+    transform: scale(0.8, 0.8);
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    font-size: 20px;
+    padding: 5px;
 }
