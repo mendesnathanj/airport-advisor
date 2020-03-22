@@ -9,10 +9,11 @@ class LoginForm extends React.Component {
     //may have to change depending on column names
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      errors: {}
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.renderErrors = this.renderErrors.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   handleSubmit(e) {
@@ -21,8 +22,11 @@ class LoginForm extends React.Component {
         username: this.state.username,
         password: this.state.password
     }
-    this.props.closeModal();
-    this.props.login(user);
+    let props = this.props;
+    this.props.login(user).then( () => {
+      console.log('login tamadir', props.errors)
+      if(props.errors.length === 0)  {props.closeModal()};
+    });
   }
 
   update(field) {
@@ -30,19 +34,26 @@ class LoginForm extends React.Component {
       this.setState({
         [field]: e.currentTarget.value
       });
-  }
-//   renderErrors() {
-//     return(
-//       <ul>
-//         {Object.keys(this.state.errors).map((error, i) => (
-//           <li key={`error-${i}`}>
-//             {this.state.errors[error]}
-//           </li>
-//         ))}
-//       </ul>
-//     );
-//     }
+    }
+
+    renderErrors() {
+      console.log('errors should be in login form renderErrors', this.props.errors);
+      console.log('props.error', this.props.errors)
+      return(
+        <ul className='errors'>
+          {Object.keys(this.props.errors).map((error, i) => (
+            <li key={`error-${i}`}>
+              {this.props.errors[error]}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+
+
     render() {
+      console.log('errors in render part of login form', this.state.errors)
+
         return (
           <div className="login">
             <header className="header">Login</header>
@@ -64,7 +75,7 @@ class LoginForm extends React.Component {
               />
               <br />
               <input className="submit-login" type="submit" value="Login" />
-              {/* {this.renderErrors()} */}
+              {this.renderErrors()}
             </form>
             {/* <button>Create a button to open the sign up modal</button> */}
           </div>

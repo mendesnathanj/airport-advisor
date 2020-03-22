@@ -4,20 +4,24 @@ import './signup_form.scss';
 
 class SignupForm extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            username:'',
-            password:'',
-            password2:''
-        }
+      super(props);
+      this.state = {
+          username:'',
+          password:'',
+          password2:'',
+          errors: {}
+      }
 
-        this.handleSubmit = this.handleSubmit.bind(this)
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.clearedErrors = false;
     }
+
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
         });
     }
+
     handleSubmit(e) {
         e.preventDefault();
         let user = {
@@ -28,17 +32,19 @@ class SignupForm extends React.Component {
         this.props.signup(user)
         this.props.closeModal();
     }
-    // renderErrors() {
-    //      return(
-    //         <ul>
-    //             {Object.keys(this.state.errors).map((error, i) => (
-    //             <li key={`error-${i}`}>
-    //                 {this.state.errors[error]}
-    //             </li>
-    //             ))}
-    //         </ul>
-    // );
-    // }
+
+    renderErrors() {
+         return(
+           <ul className='errors'>
+                {Object.keys(this.props.errors).map((error, i) => (
+                <li key={`error-${i}`}>
+                    {this.props.errors[error]}
+                </li>
+                ))}
+            </ul>
+    );
+    }
+
     render() {
         return (
           <div className="signup">
@@ -69,7 +75,7 @@ class SignupForm extends React.Component {
               />
               <br />
               <input className="submit-signup" type="submit" value="Sign Up" />
-              {/* {this.renderErrors()} */}
+              {this.renderErrors()}
             </form>
             {/* <button>Create a button to open the login modal</button> */}
           </div>
