@@ -8,7 +8,8 @@ const mapStateToProps = (state) => {
     console.log('state.errors.session', state)
       return {
         formType: "login",
-        errors: state.errors.session}
+        errors: state.errors.session,
+    }
 };
 
 const mapDispatchToProps = (dispatch) => ({

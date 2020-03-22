@@ -14,6 +14,16 @@ class SignupForm extends React.Component {
 
       this.handleSubmit = this.handleSubmit.bind(this);
       this.clearedErrors = false;
+      this.renderErrors = this.renderErrors.bind(this);
+
+      // Close modal when user is signed up
+      let modalOpen = true;
+      window.store.subscribe(() => {
+        if (window.store.getState().session.isAuthenticated && modalOpen) {
+          modalOpen = false;
+          props.closeModal();
+        }
+      });
     }
 
     update(field) {
@@ -30,7 +40,6 @@ class SignupForm extends React.Component {
             password2: this.state.password2
         }
         this.props.signup(user)
-        this.props.closeModal();
     }
 
     renderErrors() {

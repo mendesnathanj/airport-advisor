@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './login_form.scss';
+import { RECEIVE_USER_SIGN_IN } from '../../actions/session_actions';
+
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -12,8 +14,18 @@ class LoginForm extends React.Component {
       password: "",
       errors: {}
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+
+    // Close modal when user is loged in
+    let modalOpen = true;
+    window.store.subscribe(() => {
+      if(window.store.getState().session.isAuthenticated && modalOpen) {
+        modalOpen = false;
+        props.closeModal();
+      }
+    });
   }
 
   handleSubmit(e) {
@@ -22,11 +34,7 @@ class LoginForm extends React.Component {
         username: this.state.username,
         password: this.state.password
     }
-    let props = this.props;
-    this.props.login(user).then( () => {
-      console.log('login tamadir', props.errors)
-      if(props.errors.length === 0)  {props.closeModal()};
-    });
+    this.props.login(user);
   }
 
   update(field) {
