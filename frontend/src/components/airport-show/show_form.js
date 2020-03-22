@@ -5,7 +5,7 @@ import ShowRating from './show-ratings/ratings'
 
 class ShowForm extends React.Component {    
     componentDidMount() {
-        debugger
+        // debugger
         this.props.fetchAirport(this.props.match.params.airportId)
     }
     render () {
@@ -15,11 +15,11 @@ class ShowForm extends React.Component {
             <div className="show-page">
                 <header className="show-summary">
 
-                    <h1>{airport.name}</h1>
-                    <h1><ShowRating/></h1>
+                    <h1>{airport.name}, {airport.code}</h1>
+                    <h1>{airport.city}, {airport.country}</h1>
                     <h1>Airport Overall Ratings</h1>
+                    <h1><ShowRating/></h1>
                     <h1>Airport Individual Ratings</h1>
-                    {/* <x-star-rating></x-star-rating> */}
                     <button className="review-btn">Write a Review</button>
                 </header>
                 <br></br>

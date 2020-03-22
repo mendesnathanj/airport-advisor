@@ -5,13 +5,13 @@ import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        // reviews: Object.values(state.airport_id.reviews),
+        // reviews: Object.values(state.reviews),
         airport: state.airports[ownProps.match.params.airportId]
     }
 }
 
 const mapDispatchToProps = dispatch => {
-    return{
+    return {
         fetchAirport: (airport_id) => dispatch(fetchAirport(airport_id))
     }
 }
