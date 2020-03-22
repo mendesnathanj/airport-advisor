@@ -14,7 +14,7 @@ $bg-color: #77DD77;
   transition: all 100ms ease-in-out;
 }
 
-.circle {
+.circle, .noninteractive-circle {
   width: $size;
   height: $size;
   border-radius: 50%;
@@ -25,16 +25,19 @@ $bg-color: #77DD77;
   transform: scale(1.15);
 }
 
-// .half-circle {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   height: $size;
-//   width: $size / 2;
-//   border-bottom-left-radius: $size;
-//   border-top-left-radius: $size;
-//   background-color: #C4C4C4;
-// }
+.noninteractive-circle {
+  background-color: $border-color;
+}
+
+.half-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: $size;
+  width: $size / 2;
+  border-bottom-left-radius: $size;
+  border-top-left-radius: $size;
+}
 
 .circle-container {
   position: relative;

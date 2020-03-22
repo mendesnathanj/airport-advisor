@@ -1,19 +1,23 @@
 import React from 'react';
-import './airport_results.scss';
-//will need to create link later
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import RatingContainer from './rating_container/rating_container';
 
-const AirportItem = () => {
-    return (
+const AirportItem = ({ index, airport }) => {
+  const airportStrTitle = `${index}. ${airport.name} (${airport.code}`;
+  const airportStrLoc = `${airport.city}, ${airport.country}`;
+  return (
+    <Link to={`/airports/${airport._id}`}>
       <div className="airport-item">
-        <ul>
-          <li className="airport-item-attr"> San Francisco Airport</li>
-          <li className="airport-item-attr">SFO</li>
-          <li className="airport-item-attr">San Francisco, USA</li>
-          <li className="airport-item-attr">Star Ratings</li>
-        </ul>
+        <h3 className="airport-item-title">
+          {airportStrTitle}
+          <span className="airport-item-title-location">
+            {airportStrLoc}
+          </span>
+        </h3>
+        <RatingContainer num={airport.avg_score.general_score} />
       </div>
-    );
+    </Link>
+  );
 }
 
 export default AirportItem
