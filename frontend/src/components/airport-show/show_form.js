@@ -12,31 +12,40 @@ class ShowForm extends React.Component {
         if (!this.props.airport) return null;
         console.log(airport)
         return (
-            <div className="show-page">
-                <header className="show-summary">
-
-                    <h1>{airport.name}, {airport.code}</h1>
-                    <h1>{airport.city}, {airport.country}</h1>
-                    <h1>Airport Overall Ratings</h1>
-                    <h1><ShowRating/></h1>
-                    <h1>Airport Individual Ratings</h1>
-                    <button className="review-btn">Write a Review</button>
-                </header>
-                <br></br>
-                <div className="show-body">
-                    <ul> 
-                        <li className="show-review-item"><RatingItem airport={ airport }/></li>
-                        <br></br>
-                        <li className="show-review-item"><RatingItem/></li>
-                        <br></br>
-                        <li className="show-review-item"><RatingItem/></li>
-                        <br></br>
-                        <li className="show-review-item"><RatingItem/></li>
-                        <br></br>
-                    </ul>
-                </div>
+          <div className="show-page">
+            <header className="show-summary">
+              <h1>
+                {airport.name}, {airport.code}
+              </h1>
+              <h1>
+                {airport.city}, {airport.country}
+              </h1>
+              <h1>Overall Rating</h1>
+              <h1>{airport.avg_score.general_score}</h1>
+              <h1>Airport Individual Ratings</h1>
+              <div className="optional-reviews">
+                <ul>
+                  <li>{airport.avg_score.transportation}</li>
+                  <li>{airport.avg_score.restaurants}</li>
+                  <li>{airport.avg_score.waiting_hall}</li>
+                  <li>{airport.avg_score.wifi_charging}</li>
+                  <li>{airport.avg_score.sleepability}</li>
+                  <li>{airport.avg_score.cleanliness}</li>
+                  <li>{airport.avg_score.security}</li>
+                </ul>
+              </div>
+              <button className="review-btn">Write a Review</button>
+            </header>
+            <br></br>
+            <div className="show-body">
+              <ul>
+                {airport.reviews.map(review => (
+                  <RatingItem review={review} key={review._id} />
+                ))}
+              </ul>
             </div>
-        )
+          </div>
+        );
     }
 
 }

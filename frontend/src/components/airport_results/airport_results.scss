@@ -1,17 +1,17 @@
 .airport-results {
-    color: black;
+    color: #333;
     font-size: 30px;
     display: flexbox;
     text-align: center;
 }
 .results-header {
     display: inline-block;
-    color: black;
+    color: #333;
     font-size: 30px;
 }
 .airport-item {
     display: inline-block;
-    border: black solid;
+    border: #333 solid;
     margin: 20px;
     width: 60%;
     text-align: left;
