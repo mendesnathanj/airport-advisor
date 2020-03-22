@@ -1,9 +1,10 @@
 import React from 'react';
 import './show.scss'
 import RatingItem from './rating_item';
+import ShowRating from './show-ratings/ratings'
 import RatingContainer from '../airport_results/rating_container/rating_container'
 
-class ShowForm extends React.Component {
+class ShowForm extends React.Component {    
     componentDidMount() {
         this.props.fetchAirport(this.props.match.params.airportId)
     }
@@ -13,51 +14,48 @@ class ShowForm extends React.Component {
         return (
           <div className="show-page">
             <header className="show-summary">
-              <div className="show-header-container">
-                <h1 className="show-title">
-                  {airport.name} ({airport.code})
+              <h1>
+                {airport.name}, {airport.code}
+              </h1>
+              <span className="rating-average">
+                <h1 className="main-score">
+                  <RatingContainer num={airport.avg_score.general_score} />
                 </h1>
-                <br />
-                <span className="rating-average">
-                  <h1 className="main-score">
-                    <RatingContainer num={airport.avg_score.general_score} />
-                  </h1>
-                  <h1 className="main-score">{airport.review_count} ratings</h1>
-                </span>
-              </div>
+                <h1 className="main-score">{airport.review_count} ratings</h1>
+              </span>
               <div className="optional-reviews">
-                <div className="op-reviews">
+                <ul className="op-reviews">
                   <span>
-                    <span className="rating-title">Transportation</span>
+                    Transportation{" "}
                     <RatingContainer num={airport.avg_score.transportation} />
                   </span>
                   <span>
-                    <span className="rating-title">Restaurants</span>
+                    Restaurants{" "}
                     <RatingContainer num={airport.avg_score.restaurants} />
                   </span>
                   <span>
-                    <span className="rating-title">Waiting Hall</span>
+                    Waiting Hall{" "}
                     <RatingContainer num={airport.avg_score.waiting_hall} />
                   </span>
                   <span>
-                    <span className="rating-title">Wifi Charging</span>
+                    Wifi Charging{" "}
                     <RatingContainer num={airport.avg_score.wifi_charging} />
                   </span>
-                </div>
-                <div className="op-reviews">
+                </ul>
+                <ul className="op-reviews">
                   <span>
-                    <span className="rating-title">Sleepability</span>
+                    Sleepability{" "}
                     <RatingContainer num={airport.avg_score.sleepability} />
                   </span>
                   <span>
-                    <span className="rating-title">Cleanliness</span>
+                    Cleanliness{" "}
                     <RatingContainer num={airport.avg_score.cleanliness} />
                   </span>
                   <span>
-                    <span className="rating-title">Security</span>
+                    Security{" "}
                     <RatingContainer num={airport.avg_score.security} />
                   </span>
-                </div>
+                </ul>
               </div>
               {!!this.props.currentUser ? (
                 <button
@@ -68,15 +66,11 @@ class ShowForm extends React.Component {
                 </button>
               ) : null}
             </header>
-            {/* <br></br> */}
+            <br></br>
             <div className="show-body">
-              <div className="reviews-title-container">
-                <h2 className="reviews-title">Reviews</h2>
-                <span className="underline"></span>
-              </div>
               <div className="show-body-child">
                 {airport.reviews.map(review => (
-                  <RatingItem review={review} key={review._id}/>
+                  <RatingItem review={review} key={review._id} />
                 ))}
               </div>
             </div>
