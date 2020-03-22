@@ -57,13 +57,12 @@ const RatingItem = (props) => {
             </span>
           </div>
         </div>
-        {/* {props.review.user.username} */}
-        <button
+        {/* <button
           className="edit-btn"
           onClick={() => this.props.openModal("edit-review")}
         >
           Edit Review
-        </button>
+        </button> */}
       </div>
     );
 
