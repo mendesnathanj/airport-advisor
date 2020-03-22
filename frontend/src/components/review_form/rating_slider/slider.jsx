@@ -5,10 +5,12 @@ class Slider extends React.Component {
   constructor(props) {
     super(props);
 
+    let initialValue = this.props.value === null ? 0 : this.props.value;
+
     this.state = {
-      value: 0,
-      finalValue: 0,
-      valueSelected: false
+      value: initialValue,
+      finalValue: initialValue,
+      valueSelected: this.props.value !== null
     };
 
     this.handleHover = this.handleHover.bind(this);
@@ -16,12 +18,13 @@ class Slider extends React.Component {
     this.reset = this.reset.bind(this);
   }
 
-  handleHover(i) {
-    this.setState({ value: i });
+  handleHover(val) {
+    this.setState({ value: val });
   }
 
-  handleClick(i) {
-    this.setState({ finalValue: i, valueSelected: true });
+  handleClick(val) {
+    this.props.handleRatingSelection(this.props.category, val);
+    this.setState({ finalValue: val, valueSelected: true });
   }
 
   reset() {

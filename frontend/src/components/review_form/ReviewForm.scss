@@ -84,3 +84,12 @@ $btn-color: #f55b5b;
   color: #fff;
   background-color: $btn-color;
 }
+
+.word-count {
+  display: inline-block;
+  font-family: 'Sen', sans-serif;
+  font-size: 0.9em;
+  color: #999;
+  text-align: right;
+  width: 100%;
+}
