@@ -3,9 +3,9 @@ import * as APIUtil from '../utils/airport_api_util';
 export const RECEIVE_AIRPORT = "RECEIVE_AIRPORT";
 export const RECEIVE_AIRPORTS = 'RECEIVE_AIRPORTS';
 
-const receiveAirport = airport_id => ({
+const receiveAirport = airport => ({
     type: RECEIVE_AIRPORT,
-    airport_id
+    airport
 });
 
 const receiveAirports = airports => ({
@@ -20,7 +20,7 @@ export const fetchAirports = () => dispatch => (
 );
 
 
-// export const fetchAirport = (airport_id) => dispatch (
-//     APIUtil.getAirport(airport_id)
-//         .then(airport_id => dispatch(receiveAirport(airport_id)))
-// )
+export const fetchAirport = (airport_id) => dispatch => (
+    APIUtil.getAirport(airport_id)
+        .then(airport => dispatch(receiveAirport(airport)))
+)
