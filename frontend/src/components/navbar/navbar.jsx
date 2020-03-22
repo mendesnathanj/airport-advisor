@@ -3,7 +3,7 @@ import SearchBarContainer from '../search_bar/search_bar_container';
 import { Link } from 'react-router-dom';
 import './Navbar.scss';
 
-const Navbar = ({ location, loggedIn, logout, openModal }) => {
+const Navbar = ({ location, loggedIn, currentUser, logout, openModal }) => {
   const navbarTheme = location.pathname === '/' ? 'light' : 'dark';
   const searchBar = location.pathname === '/' ? null : <li><SearchBarContainer /></li>;
 
@@ -11,6 +11,7 @@ const Navbar = ({ location, loggedIn, logout, openModal }) => {
   if (loggedIn) {
     navLinks = (
       <ul className="navbar-list">
+        <li className="navlink username">Welcome, { currentUser.username }</li>
         <li onClick={ () => logout() } className="navlink">Logout</li>
         { searchBar }
       </ul>

@@ -26,6 +26,8 @@ class SearchBar extends React.Component {
       pathname: '/airports',
       search: `?term=${this.state.searchTerm}&query=${this.state.searchItems.map(airport => airport._id).join(',')}`
     });
+
+    this.setState({ searchTerm: '', searchItems: [] });
   }
 
   handleKeyDown(e) {
