@@ -31,26 +31,21 @@ For the frontend, we will be using React and Redux as our main frameworks and wi
 
 Parsing the large amount of airport data that we will have stored on the backend
 
-### UI/UX
+#### Splash Page
 
+![Splash page](https://user-images.githubusercontent.com/27787818/77266135-d9325680-6c5b-11ea-9671-ea499164a551.png)
 
-Write what is happining when you go the side and click stuf!!
-<!-- Like this: -->
-<!-- The goal is to make a sleek and intuitive interface for users to be able to pick up and engage with quickly. Pages will be self explanatory with a minimal feel as to not overwhelm users.
+![Login Modal](https://user-images.githubusercontent.com/27787818/77265945-54dfd380-6c5b-11ea-87ff-31a940f4aed4.png)
 
-The app will consist of a single page upon logging in with a welcome banner and a sidebar that can be used for navigation between different document rooms. The sidebar will collapse upon entering a document room for a full-screen experience with a clickable tab to reopen the sidebar in order to navigate elsewhere.
+#### Search Bar / Autocomplete
 
-Document pages will start out as a blank canvas and include a toolbar to switch between text and drawing modes with their own prospective editing tools such as font size and pen width.
+![Search Bar](https://user-images.githubusercontent.com/27787818/77266002-80fb5480-6c5b-11ea-8a5c-b58497943b4d.png)
+![Result for a particular airport](https://user-images.githubusercontent.com/27787818/77266021-907a9d80-6c5b-11ea-8eac-7b73deb4f9ba.png)
 
-The top of the screen will feature an unobtrusive fixed bar for document information such as name and creator, a log out button, and links to the GitHub repository as well as a dropdown menu with links to each contributing developer's information. -->
+#### Creating a Review
 
-
-Screenshots
-
-### Wireframes
-### Splash Page
-### Search Bar / Autocomplete
-
+![Createing a review](https://user-images.githubusercontent.com/27787818/77266065-aee09900-6c5b-11ea-8c18-f75475e225d0.png)
+![Posting the Review](https://user-images.githubusercontent.com/27787818/77266512-dedc6c00-6c5c-11ea-8f58-33a5f53024c1.png)
 
 ## Group Members & Work Breakdown
 
@@ -58,3 +53,6 @@ Screenshots
 - Hyo Lim Jeong (Backend engineer)
 - Terry Chow (Frontend engineer)
 - Nathan Mendes (Frontend engineer)
+
+Used git feature branch workflow technique for collaboration.
+![Working Tree](https://user-images.githubusercontent.com/27787818/77266837-e8b29f00-6c5d-11ea-8a1a-6266e14c2e10.png)
