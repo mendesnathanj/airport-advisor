@@ -62,6 +62,7 @@ fs.createReadStream("./airport-codes.csv")
       testData.forEach(airport => {
         airport.save();
       });
+    
       console.log("end");
     });
 
