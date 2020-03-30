@@ -76,7 +76,7 @@ class ShowForm extends React.Component {
               </div>
               <div className="show-body-child">
                 {airport.reviews.map(review => (
-                  <RatingItem review={review} key={review._id}/>
+                  <RatingItem review={review} key={review._id} currentUser={this.props.currentUser} openModal={this.props.openModal}/>
                 ))}
               </div>
             </div>
