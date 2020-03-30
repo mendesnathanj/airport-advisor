@@ -6,11 +6,11 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err)); 
 
-// mongoose.airports.drop({});
 
 const fs = require('fs');
-const parse = require("csv-parse");
+const parser = require("csv-parser");
 const Airport = require("../models/Airport")
+const filepath = "./airport-codes.csv";
 
 Airport.remove({}, () => {
   console.log("all airports removed");
@@ -25,45 +25,63 @@ const excludedCats = [
   "balloonport"
 ];
 
-const considerInclude = ["small_airport", "medium_airport"]
 let data = [];
 
+fs.createReadStream(filepath)
+  .on("error", () => {console.log("oops something went wrong")})
+  .pipe(parser({ separator: "," }))
+  .on("data", row => {
+    if(row["iata_code"]) {data.push(row["iata_code"])}
+    // const coords = r[11].split(",");
+    // const lat = coords[0];
+    // const long = coords[1];
 
-fs.createReadStream("./airport-codes.csv")
-    .pipe(parse({ delimiter: "," }))
-    .on("data", r => {
+    // if (!excludedCats.includes(r[1]) && r[2] !== "name" && r[9]) {
+    //   const newAirport = new Airport({
+    //     name: r[2],
+    //     code: r[9],
+    //     city: r[7],
+    //     country: r[4],
+    //     lat: lat,
+    //     long: long
+    //   });
 
-        const coords = r[11].split(",");
-        const lat = coords[0];
-        const long = coords[1];
+    //   newAirport.save();
+    // }
+  })
 
-        if (!excludedCats.includes(r[1]) && r[2] !== "name" && r[9]) {
-          const newAirport = new Airport({
-            name: r[2],
-            code: r[9],
-            city: r[7],
-            country: r[4],
-            lat: lat,
-            long: long
-          });
+  .on("end", () => {
+    console.log("end");
+    console.log(data)
+  });
 
-          // newAirport.populate('reviews')
+
+// fs.createReadStream("./airport-codes.csv")
+//     .pipe(parse({ delimiter: "," }))
+//     .on("data", r => {
+
+//         const coords = r[11].split(",");
+//         const lat = coords[0];
+//         const long = coords[1];
+
+//         if (!excludedCats.includes(r[1]) && r[2] !== "name" && r[9]) {
+//           const newAirport = new Airport({
+//             name: r[2],
+//             code: r[9],
+//             city: r[7],
+//             country: r[4],
+//             lat: lat,
+//             long: long
+//           });
           
-          // data.push(newAirport);
-          
-          newAirport.save()
-        };
+//           newAirport.save()
+//         };
 
-    })
+//     })
 
-    .on("end", () => {
-      // const testData = data.slice(0, 10);
-      // console.log(testData)
-      // testData.forEach(airport => {
-      //   airport.save();
-      // });
-      console.log("end");
-    });
+//     .on("end", () => {
+//       console.log("end");
+//     });
 
 
 
