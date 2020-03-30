@@ -22,7 +22,7 @@ const review = {
 // write logic to find airport by _id once it is in state
 const mapStateToProps = (state, ownProps) => {
   let location = ownProps.location.pathname.split("/");
-  // debugger;
+  
   return {
     airport: state.airports[location[location.length - 1]],
     review,

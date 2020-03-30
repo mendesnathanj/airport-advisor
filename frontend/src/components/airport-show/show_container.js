@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
       fetchAirport: airport_id => dispatch(fetchAirport(airport_id)),
-      openModal: modal => dispatch(openModal(modal)),
+      openModal: (modal, review) => dispatch(openModal(modal, review)),
       closeModal: () => dispatch(closeModal())
     };
 }

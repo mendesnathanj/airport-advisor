@@ -7,12 +7,12 @@ import SignupFormContainer from "../signup/signup_container";
 import NewReviewFormContainer from '../review_form/new_review_form_container';
 import EditReviewFormContainer from '../review_form/edit_review_form_container';
 
-function Modal({ modal, closeModal }) {
-  if (!modal) {
+function Modal(props) {
+  if (!props.modal) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (props.modal) {
     case "login":
       component = <LoginFormContainer />;
       break;
@@ -23,7 +23,7 @@ function Modal({ modal, closeModal }) {
       component = <NewReviewFormContainer />;
       break;
     case 'edit-review':
-      component = <EditReviewFormContainer />;
+      component = <EditReviewFormContainer review={props.review} />;
       break;
     default:
       return null;
@@ -39,9 +39,10 @@ function Modal({ modal, closeModal }) {
 
 
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    review: state.ui.review
   };
 };
 

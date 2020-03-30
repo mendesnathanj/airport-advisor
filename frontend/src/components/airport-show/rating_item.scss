@@ -1,3 +1,5 @@
+$font-stack: 'Sen', sans-serif;
+
 .rating-item {
     display: flex;
     flex-direction: column;
@@ -48,4 +50,25 @@
 .sub-rating > .circle-list-container {
     margin-top: 0.25em;
     margin-left: -4px;
+}
+.edit-btn {
+    color: rgb(226, 86, 51);
+    background-color: rgb(245, 245, 245);
+    font-size: 1em;
+    font-family: $font-stack;
+    font-weight: 700;
+    padding: 7px;
+    border: rgb(226, 86, 51) solid;
+    border-width: .5mm;
+    min-height: 45px;
+    min-width: 125px;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+.edit-btn:hover {
+    background-color: rgb(226, 86, 51);
+    color: #fff;
 }

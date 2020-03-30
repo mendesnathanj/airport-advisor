@@ -1,7 +1,7 @@
 import React from 'react';
 import './rating_item.scss'
 import RatingContainer from "../airport_results/rating_container/rating_container";
-import EditReviewFormContainer from "../review_form/edit_review_form_container";
+// import EditReviewFormContainer from "../review_form/edit_review_form_container";
 
 const RatingItem = (props) => {
     const rev_ratings = props.review.ratings;
@@ -57,12 +57,12 @@ const RatingItem = (props) => {
           </span>
         </div>
         </div>
-        {/* <button
+        {props.currentUser.id === props.review.user._id ?
+        <button
           className="edit-btn"
-          onClick={() => this.props.openModal("edit-review")}
-        >
+          onClick={() => props.openModal("edit-review", props.review)}>
           Edit Review
-        </button> */}
+        </button> : null}
       </div>
     );
 

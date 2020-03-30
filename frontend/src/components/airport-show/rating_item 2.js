@@ -4,7 +4,7 @@ import RatingContainer from "../airport_results/rating_container/rating_containe
 
 const RatingItem = (props) => {
     const rev_ratings = props.review.ratings
-    // debugger
+    
     return (
       <div className="rating-item">
         <ul className="main-rating">
