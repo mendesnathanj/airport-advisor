@@ -13,7 +13,7 @@ const parse = require("csv-parse");
 const Airport = require("../models/Airport")
 
 Airport.remove({}, () => {
-  console.log("all data removed");
+  console.log("all airports removed");
 });
 
 const excludedCats = [
@@ -49,19 +49,19 @@ fs.createReadStream("./airport-codes.csv")
 
           // newAirport.populate('reviews')
           
-          data.push(newAirport);
+          // data.push(newAirport);
           
-          // newAirport.save()
+          newAirport.save()
         };
 
     })
 
     .on("end", () => {
-      const testData = data.slice(0, 10);
-      console.log(testData)
-      testData.forEach(airport => {
-        airport.save();
-      });
+      // const testData = data.slice(0, 10);
+      // console.log(testData)
+      // testData.forEach(airport => {
+      //   airport.save();
+      // });
       console.log("end");
     });
 

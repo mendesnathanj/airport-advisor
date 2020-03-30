@@ -77,10 +77,11 @@ AirportSchema.virtual('avg_score').get(function() {
     });
   }
   
-
-  Object.keys(avg_scores).forEach(cat => {
-    avg_scores[cat] /= this.review_count;
-  });
+  if (this.review_count > 0) {
+    Object.keys(avg_scores).forEach(cat => {
+      avg_scores[cat] /= this.review_count;
+    });
+  }
   
 
   return avg_scores;
@@ -88,6 +89,19 @@ AirportSchema.virtual('avg_score').get(function() {
 })
 
 
+// AirportSchema.statics.random = function(callback) {
+//   this.count(
+//     function(err, count) {
+//       if (err) {
+//         return callback(err);
+//       }
+//       const rand = Math.floor(Math.random() * count);
+//       this.findOne()
+//         .skip(rand)
+//         .exec(callback);
+//     }.bind(this)
+//   );
+// };
 
 const Airport = mongoose.model("airport", AirportSchema);
 module.exports = Airport;
