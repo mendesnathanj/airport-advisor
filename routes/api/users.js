@@ -39,7 +39,7 @@ router.post('/signup', (req, res) => {
                     newUser.save().then(user => {
                         res.json({
                             user: user,
-                            token: getToken(user),
+                            token: 'Bearer ' + getToken(user)
                         })
                     }).catch(err => console.log(err));
                 })
