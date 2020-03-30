@@ -37,9 +37,11 @@ export const signup = user => dispatch => (
   APIUtil.signup(user).then(res => {
     const { token } = res.data;
     localStorage.setItem('jwtToken', token);
+    APIUtil.setAuthToken(token);
     const decoded = jwt_decode(token);
     dispatch(receiveCurrentUser(decoded))
   }, err => (
+    console.log('errors in session action in sign up', err+1),
     dispatch(receiveErrors(err.response.data))
   ))
 );
@@ -53,6 +55,7 @@ export const login = user => dispatch => (
     dispatch(receiveCurrentUser(decoded));
   })
   .catch(err => {
+    console.log('errors in session action in login', err+2)
     dispatch(receiveErrors(err.response.data));
   })
 );

@@ -1,0 +1,50 @@
+.rating-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ccc;
+    align-items: flex-start;
+    width: 100%;
+    padding-bottom: 2em;
+    padding-top: 2em;
+}
+.main-rating {
+    display: flex;
+    border-width: 5px;
+    align-items: center;
+}
+.rating-header {
+    font-weight: 700;
+    color: #333;
+}
+
+.rating-date {
+    display: inline-block;
+    font-size: 14px;
+    color: grey;
+    vertical-align: 30%;
+}
+.rating-text {
+    padding-top: 15px;
+    display: inline-block;
+}
+.rating-score {
+    display: inline-block;
+    vertical-align: bottom;
+    transform: scale(0.7, 0.7);
+}
+.op-rating-box {
+    display: flex;
+    margin-left: -1.5em;
+}
+.optional-rating {
+    transform: scale(0.7, 0.7);
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    font-size: 20px;
+}
+
+.sub-rating > .circle-list-container {
+    margin-top: 0.25em;
+    margin-left: -4px;
+}

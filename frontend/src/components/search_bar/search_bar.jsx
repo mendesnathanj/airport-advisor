@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
     this.filterSearch = this.filterSearch.bind(this);
     this.search = this.search.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.clear = this.clear.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +27,12 @@ class SearchBar extends React.Component {
       pathname: '/airports',
       search: `?term=${this.state.searchTerm}&query=${this.state.searchItems.map(airport => airport._id).join(',')}`
     });
+
+    this.clear();
+  }
+
+  clear() {
+    this.setState({ searchTerm: "", searchItems: [] });
   }
 
   handleKeyDown(e) {
@@ -61,6 +68,7 @@ class SearchBar extends React.Component {
         />
         <i onClick={this.search} className="search-bar-icon fas fa-search"></i>
         <Results
+          handleClear={this.clear}
           searchItems={this.state.searchItems}
           airports={this.props.airports}
         />

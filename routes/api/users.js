@@ -39,7 +39,7 @@ router.post('/signup', (req, res) => {
                     newUser.save().then(user => {
                         res.json({
                             user: user,
-                            token: getToken(user),
+                            token: 'Bearer ' + getToken(user)
                         })
                     }).catch(err => console.log(err));
                 })
@@ -49,7 +49,7 @@ router.post('/signup', (req, res) => {
 })
 
 function getToken(user) {
-    const payload = { id: user.id, name: user.name };
+    const payload = { id: user.id, username: user.username };
 
     return jwt.sign(
         payload,

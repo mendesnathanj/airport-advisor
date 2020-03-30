@@ -29,9 +29,7 @@ router.get('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     Review.findByIdAndDelete(req.params.id)
-        .then(() => {
-            res.json({ staus: "OK" })
-        })
+        .then(review => res.json(review))
         .catch(err =>
             res.status(404).json({ noreviewfound: 'No review found with that ID' })
         );
@@ -91,7 +89,7 @@ router.post(
             res.json(result);
           })
           .catch(err => {
-            res.status(500).json({ err: "didn't work" });
+            res.status(500).json(err);
           });
 
     }

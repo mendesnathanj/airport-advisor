@@ -6,15 +6,7 @@
     border-radius: 6px;
     text-align: center;
 }
-.header {
-    display: inline-block;
-    font-size: 24px;
-    color: black;
-    font-weight: 550;
-    font-family: sans-serif;
-    margin-bottom: 20px;
-    
-}
+
 .signup-input {
     display: inline-block;
     padding: 10px;
@@ -37,4 +29,15 @@
     min-height: 32px;
     min-width: 90px;
     border-radius: 3px;;
+}
+.errors {
+    color: crimson;
+    font-size: 13px;
+    list-style-type: none;
+    padding-left: 0px;
+    margin: 0px;
+}
+
+.errors p {
+    margin: 0px;
 }
