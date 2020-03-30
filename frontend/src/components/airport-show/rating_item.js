@@ -4,7 +4,8 @@ import RatingContainer from "../airport_results/rating_container/rating_containe
 import EditReviewFormContainer from "../review_form/edit_review_form_container";
 
 const RatingItem = (props) => {
-    const rev_ratings = props.review.ratings
+    const rev_ratings = props.review.ratings;
+
     return (
       <div className="rating-item">
         <ul className="main-rating">
