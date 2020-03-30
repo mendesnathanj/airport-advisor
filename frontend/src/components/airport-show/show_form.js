@@ -4,12 +4,26 @@ import RatingItem from './rating_item';
 import RatingContainer from '../airport_results/rating_container/rating_container'
 
 class ShowForm extends React.Component {
+    constructor(props) {
+      super(props);
+
+      this.state = { render: false };
+    }
     componentDidMount() {
         this.props.fetchAirport(this.props.match.params.airportId)
+          .then(() => this.setState({ render: true }));
     }
+
+    componentDidUpdate(prevProps) {
+      if (prevProps.match.params.airportId !== this.props.match.params.airportId)
+        this.props.fetchAirport(this.props.match.params.airportId);
+    }
+
     render () {
-        const { airport } = this.props
-        if (!this.props.airport) return null;
+        const { airport, reviews } = this.props;
+
+        if (!this.state.render) return null;
+
         return (
           <div className="show-page">
             <header className="show-summary">
@@ -75,7 +89,7 @@ class ShowForm extends React.Component {
                 <span className="underline"></span>
               </div>
               <div className="show-body-child">
-                {airport.reviews.map(review => (
+                {reviews.map(review => (
                   <RatingItem review={review} key={review._id}/>
                 ))}
               </div>
