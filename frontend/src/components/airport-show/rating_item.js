@@ -2,40 +2,42 @@ import React from 'react';
 import './rating_item.scss'
 import RatingContainer from "../airport_results/rating_container/rating_container";
 
-const RatingItem = (props) => {
-    const rev_ratings = props.review.ratings;
+const RatingItem = ({ review, currentUser, openModal, deleteReview }) => {
+    const rev_ratings = review.ratings;
+    let date = review.date.substring(0, 10).split('-');
+    date = `${date[1]}-${date[2]}-${date[0]}`;
 
     return (
       <div className="rating-item">
         <ul className="main-rating">
           <li className="rating-header">
-            {props.review.user.username}
+            {review.user.username}
           </li>
           <li className="rating-score">
             <RatingContainer num={rev_ratings.general_score} />
           </li>
           <li className="rating-date">
-            written {props.review.date.substring(0, 10)}
+            written {date}
           </li>
           <li>
-            {props.currentUser.id === props.review.user._id ?
+            {currentUser.id === review.user._id ?
               <button
                 className="edit-btn"
-                onClick={() => props.openModal("edit-review", props.review)}>
+                onClick={() => openModal("edit-review", review)}>
                 Edit Review
               </button> : null}
           </li>
           <li>
-            {props.currentUser.id === props.review.user._id ?
+            {currentUser.id === review.user._id ?
               <button
                 className="edit-btn"
-                onClick={() => props.deleteReview(props.review._id)}>
+                onClick={() => deleteReview(review._id)}>
                 Delete
               </button> : null}
           </li>
         </ul>
         <ul>
-          <li className="rating-text">{props.review.review}</li>
+          <li className="rating-text">{review.review}</li>
         </ul>
         <div className="op-rating-box">
         <div className="optional-rating">

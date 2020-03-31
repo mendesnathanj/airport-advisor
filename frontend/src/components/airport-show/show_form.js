@@ -34,7 +34,9 @@ class ShowForm extends React.Component {
     render () {
         const { airport, reviews } = this.props;
 
-        const filteredReviews = reviews.filter(review => review.review.toUpperCase().includes(this.state.filter.toUpperCase()));
+        const filteredReviews = reviews
+          .filter(review => review.review.toUpperCase().includes(this.state.filter.toUpperCase()))
+          .sort((r1, r2) => ('' + r2.date).localeCompare(r1.date))
 
         if (!this.state.render) return null;
 
