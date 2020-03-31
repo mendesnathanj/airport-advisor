@@ -7,22 +7,20 @@ import { closeModal } from '../../actions/modal_actions';
 const review = {
   review: '',
   ratings: {
-    transportation: null,
-    restaurants: null,
-    waiting_hall: null,
-    wifi_charging: null,
-    sleepability: null,
-    cleanliness: null,
-    security: null,
-    general_score: null
+    transportation: 0,
+    restaurants: 0,
+    waiting_hall: 0,
+    wifi_charging: 0,
+    sleepability: 0,
+    cleanliness: 0,
+    security: 0,
+    general_score: 0
   }
 };
 
-// TODO:
-// write logic to find airport by _id once it is in state
 const mapStateToProps = (state, ownProps) => {
   let location = ownProps.location.pathname.split("/");
-  // debugger;
+
   return {
     airport: state.airports[location[location.length - 1]],
     review,
