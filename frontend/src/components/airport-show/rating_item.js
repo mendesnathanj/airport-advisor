@@ -20,7 +20,7 @@ const RatingItem = ({ review, currentUser, openModal, deleteReview }) => {
             written {date}
           </li>
           <li>
-            {currentUser.id === review.user._id ?
+            {currentUser !== undefined && currentUser.id === review.user._id ?
               <button
                 className="edit-btn"
                 onClick={() => openModal("edit-review", review)}>
@@ -28,7 +28,7 @@ const RatingItem = ({ review, currentUser, openModal, deleteReview }) => {
               </button> : null}
           </li>
           <li>
-            {currentUser.id === review.user._id ?
+            {currentUser !== undefined && currentUser.id === review.user._id ?
               <button
                 className="edit-btn"
                 onClick={() => deleteReview(review._id)}>

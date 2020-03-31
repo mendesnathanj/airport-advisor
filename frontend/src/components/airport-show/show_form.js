@@ -61,7 +61,7 @@ class ShowForm extends React.Component {
                   <h1 className="main-score">
                     <RatingContainer num={general_score} />
                   </h1>
-                  <h1 className="main-score">{airport.review_count} ratings</h1>
+                  <h1 className="main-score">{reviews.length} ratings</h1>
                 </span>
               </div>
               <div className="optional-reviews">
