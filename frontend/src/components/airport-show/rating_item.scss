@@ -1,3 +1,5 @@
+$font-stack: 'Sen', sans-serif;
+
 .rating-item {
     display: flex;
     flex-direction: column;
@@ -48,4 +50,21 @@
 .sub-rating > .circle-list-container {
     margin-top: 0.25em;
     margin-left: -4px;
+}
+.edit-btn {
+    background-color: rgb(245, 245, 245);
+    font-size: 0.75em;
+    font-family: $font-stack;
+    font-weight: 700;
+    padding: 7px;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    margin-left: 15px;
+}
+.edit-btn:hover {
+    background-color: grey;
+    color: #fff;
 }

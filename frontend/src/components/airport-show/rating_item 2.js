@@ -3,35 +3,19 @@ import './rating_item.scss'
 import RatingContainer from "../airport_results/rating_container/rating_container";
 
 const RatingItem = (props) => {
-    const rev_ratings = props.review.ratings;
-
+    const rev_ratings = props.review.ratings
+    
     return (
       <div className="rating-item">
         <ul className="main-rating">
           <li className="rating-header">
-            {props.review.user.username}
+            Authored by: {props.review.user.username}
           </li>
           <li className="rating-score">
             <RatingContainer num={rev_ratings.general_score} />
           </li>
           <li className="rating-date">
             written {props.review.date.substring(0, 10)}
-          </li>
-          <li>
-            {props.currentUser.id === props.review.user._id ?
-              <button
-                className="edit-btn"
-                onClick={() => props.openModal("edit-review", props.review)}>
-                Edit Review
-              </button> : null}
-          </li>
-          <li>
-            {props.currentUser.id === props.review.user._id ?
-              <button
-                className="edit-btn"
-                onClick={() => props.deleteReview(props.review._id)}>
-                Delete
-              </button> : null}
           </li>
         </ul>
         <ul>
@@ -52,7 +36,7 @@ const RatingItem = (props) => {
         </div>
         <div className="optional-rating">
           <span className="sub-rating">
-            Waiting Hall <RatingContainer num={rev_ratings.waiting_hall} />
+            Waitng Hall <RatingContainer num={rev_ratings.waiting_hall} />
           </span>
           <span className="sub-rating">
             Wifi Charging <RatingContainer num={rev_ratings.wifi_charging} />
