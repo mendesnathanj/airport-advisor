@@ -12,10 +12,11 @@ export default function(initialState = {}, action) {
       const review = action.review.data;
       return Object.assign({}, nextState, { [review._id]: review });
     case REMOVE_REVIEW:
-      return initialState;
+      delete nextState[action.id.data._id];
+      return nextState;
     case RECEIVE_AIRPORT:
       let nextReviews = {}
-      
+
       action.airport.data.reviews.forEach(review => {
         nextReviews[review._id]=review;
       })

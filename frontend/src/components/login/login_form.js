@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './login_form.scss';
-import { RECEIVE_USER_SIGN_IN } from '../../actions/session_actions';
 
 
 class LoginForm extends React.Component {
@@ -44,8 +43,8 @@ class LoginForm extends React.Component {
     }
 
     renderErrors() {
-      console.log('errors should be in login form renderErrors', this.props.errors);
-      console.log('props.error', this.props.errors)
+      // console.log('errors should be in login form renderErrors', this.props.errors);
+      // console.log('props.error', this.props.errors)
       return(
         <ul className='errors'>
           {Object.keys(this.props.errors).map((error, i) => (
