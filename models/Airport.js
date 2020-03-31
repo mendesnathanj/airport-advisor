@@ -77,12 +77,10 @@ AirportSchema.virtual('avg_score').get(function() {
     });
   }
   
-
   Object.keys(avg_scores).forEach(cat => {
     avg_scores[cat] /= this.review_count;
   });
   
-
   return avg_scores;
 
 })
