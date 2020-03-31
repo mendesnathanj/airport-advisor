@@ -7,8 +7,10 @@ class ShowForm extends React.Component {
     constructor(props) {
       super(props);
 
-      this.state = { render: false };
+      this.state = { render: false, filter: '' };
+      this.filterReviews = this.filterReviews.bind(this);
     }
+
     componentDidMount() {
         this.props.fetchAirport(this.props.match.params.airportId)
           .then(() => this.setState({ render: true }));
@@ -19,8 +21,14 @@ class ShowForm extends React.Component {
         this.props.fetchAirport(this.props.match.params.airportId);
     }
 
+    filterReviews({ target }) {
+      this.setState({ filter: target.value });
+    }
+
     render () {
         const { airport, reviews } = this.props;
+
+        const filteredReviews = reviews.filter(review => review.review.toUpperCase().includes(this.state.filter.toUpperCase()));
 
         if (!this.state.render) return null;
 
@@ -85,13 +93,16 @@ class ShowForm extends React.Component {
             {/* <br></br> */}
             <div className="show-body">
               <div className="reviews-title-container">
-                <h2 className="reviews-title">Reviews</h2>
+                <div className="content-container">
+                  <h2 className="reviews-title">Reviews</h2>
+                  <div className="filter-container">
+                    <input className="review-filter search-bar" onChange={this.filterReviews} value={this.state.filter} placeholder="Filter by keyword" />
+                  </div>
+                </div>
                 <span className="underline"></span>
               </div>
               <div className="show-body-child">
-                {reviews.map(review => (
-                  <RatingItem review={review} key={review._id}/>
-                ))}
+                {filteredReviews.map(review => ( <RatingItem review={review} key={review._id}/> ))}
               </div>
             </div>
           </div>
