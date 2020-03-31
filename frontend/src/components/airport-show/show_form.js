@@ -22,7 +22,7 @@ class ShowForm extends React.Component {
     }
 
     filterReviews({ target }) {
-
+      this.setState({ filter: target.value });
     }
 
     render () {
@@ -31,7 +31,7 @@ class ShowForm extends React.Component {
         const filteredReviews = reviews.filter(review => review.review.toUpperCase().includes(this.state.filter.toUpperCase()));
 
         if (!this.state.render) return null;
-        
+
         return (
           <div className="show-page">
             <header className="show-summary">
@@ -93,14 +93,16 @@ class ShowForm extends React.Component {
             {/* <br></br> */}
             <div className="show-body">
               <div className="reviews-title-container">
-                <h2 className="reviews-title">Reviews</h2>
-                <input />
+                <div className="content-container">
+                  <h2 className="reviews-title">Reviews</h2>
+                  <div className="filter-container">
+                    <input className="review-filter search-bar" onChange={this.filterReviews} value={this.state.filter} placeholder="Filter by keyword" />
+                  </div>
+                </div>
                 <span className="underline"></span>
               </div>
               <div className="show-body-child">
-                {filteredReviews.map(review => (
-                  <RatingItem review={review} key={review._id}/>
-                ))}
+                {filteredReviews.map(review => ( <RatingItem review={review} key={review._id}/> ))}
               </div>
             </div>
           </div>
