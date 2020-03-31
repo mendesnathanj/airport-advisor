@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './login_form.scss';
-import { RECEIVE_USER_SIGN_IN } from '../../actions/session_actions';
 
 
 class LoginForm extends React.Component {
