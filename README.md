@@ -14,8 +14,6 @@ The site will feature easy searching and navigation so a user can view ratings o
 - [ ] Search bar with autofill that allows you to search airport by name and airport IATA code
 - [ ] Users can leave a review, along with ratings, and view others' reviews and ratings
 - [ ] Filter for reviews based on keywords
-Bonus
-- [ ] Display of airport related data (for example, nearby hotels or restaurants)
 
 ## Technologies & Technical Challenges
 
