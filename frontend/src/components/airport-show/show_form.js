@@ -99,7 +99,13 @@ class ShowForm extends React.Component {
               </div>
               <div className="show-body-child">
                 {filteredReviews.map(review => (
-                  <RatingItem review={review} key={review._id} currentUser={this.props.currentUser} openModal={this.props.openModal} />
+                  <RatingItem 
+                  review={review} 
+                  key={review._id} 
+                  currentUser={this.props.currentUser} 
+                  openModal={this.props.openModal}
+                  closeModal={this.props.closeModal}  
+                  deleteReview={this.props.deleteReview} />
                 ))}
               </div>
             </div>

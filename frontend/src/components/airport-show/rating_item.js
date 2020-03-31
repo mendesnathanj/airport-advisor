@@ -18,6 +18,22 @@ const RatingItem = (props) => {
           <li className="rating-date">
             written {props.review.date.substring(0, 10)}
           </li>
+          <li>
+            {props.currentUser.id === props.review.user._id ?
+              <button
+                className="edit-btn"
+                onClick={() => props.openModal("edit-review", props.review)}>
+                Edit Review
+              </button> : null}
+          </li>
+          <li>
+            {props.currentUser.id === props.review.user._id ?
+              <button
+                className="edit-btn"
+                onClick={() => props.deleteReview(props.review._id)}>
+                Delete
+              </button> : null}
+          </li>
         </ul>
         <ul>
           <li className="rating-text">{props.review.review}</li>
@@ -57,12 +73,6 @@ const RatingItem = (props) => {
           </span>
         </div>
         </div>
-        {props.currentUser.id === props.review.user._id ?
-        <button
-          className="edit-btn"
-          onClick={() => props.openModal("edit-review", props.review)}>
-          Edit Review
-        </button> : null}
       </div>
     );
 

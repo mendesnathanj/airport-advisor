@@ -39,7 +39,7 @@ function Modal(props) {
 
 
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     modal: state.ui.modal,
     review: state.ui.review

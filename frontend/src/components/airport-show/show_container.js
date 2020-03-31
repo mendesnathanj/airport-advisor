@@ -3,6 +3,7 @@ import { fetchAirport } from '../../actions/airport_actions';
 import ShowForm from './show_form';
 import { withRouter } from "react-router-dom";
 import { openModal, closeModal } from "../../actions/modal_actions";
+import { deleteReview } from "../../actions/review_actions"
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -16,7 +17,8 @@ const mapDispatchToProps = dispatch => {
     return {
       fetchAirport: airport_id => dispatch(fetchAirport(airport_id)),
       openModal: (modal, review) => dispatch(openModal(modal, review)),
-      closeModal: () => dispatch(closeModal())
+      closeModal: () => dispatch(closeModal()),
+      deleteReview: review_id => dispatch(deleteReview(review_id))
     };
 }
 
