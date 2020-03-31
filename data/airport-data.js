@@ -25,63 +25,35 @@ const excludedCats = [
   "balloonport"
 ];
 
-let data = [];
 
 fs.createReadStream(filepath)
-  .on("error", () => {console.log("oops something went wrong")})
+  .on("error", () => {console.log("oops something went wrong at the start")})
   .pipe(parser({ separator: "," }))
   .on("data", row => {
-    if(row["iata_code"]) {data.push(row["iata_code"])}
-    // const coords = r[11].split(",");
-    // const lat = coords[0];
-    // const long = coords[1];
+    if(row["iata_code"] && !excludedCats.includes(row["type"])) {
 
-    // if (!excludedCats.includes(r[1]) && r[2] !== "name" && r[9]) {
-    //   const newAirport = new Airport({
-    //     name: r[2],
-    //     code: r[9],
-    //     city: r[7],
-    //     country: r[4],
-    //     lat: lat,
-    //     long: long
-    //   });
+      let coords = row["coordinates"].split(",")
+      let lat = coords[0];
+      let long = coords[1];
 
-    //   newAirport.save();
-    // }
+      let newAirport = new Airport({
+        name: row["name"],
+        code: row["iata_code"],
+        city: row["municipality"] || "NA",
+        country: row["iso_country"] || "NA",
+        lat: lat || 0,
+        long: long || 0
+      });
+      
+      newAirport.save()
+                .catch(err => {console.log(`oh no the airport didn't save ${newAirport.name}`)})
+    }
+    
   })
 
   .on("end", () => {
     console.log("end");
-    console.log(data)
   });
-
-
-// fs.createReadStream("./airport-codes.csv")
-//     .pipe(parse({ delimiter: "," }))
-//     .on("data", r => {
-
-//         const coords = r[11].split(",");
-//         const lat = coords[0];
-//         const long = coords[1];
-
-//         if (!excludedCats.includes(r[1]) && r[2] !== "name" && r[9]) {
-//           const newAirport = new Airport({
-//             name: r[2],
-//             code: r[9],
-//             city: r[7],
-//             country: r[4],
-//             lat: lat,
-//             long: long
-//           });
-          
-//           newAirport.save()
-//         };
-
-//     })
-
-//     .on("end", () => {
-//       console.log("end");
-//     });
 
 
 
