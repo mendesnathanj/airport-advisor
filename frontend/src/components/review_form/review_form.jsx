@@ -41,7 +41,7 @@ class ReviewForm extends React.Component {
       alert('Reviews can be at most 666 characters!');
       return;
     }
-
+    
     this.props
       .action(this.state)
       .then(() => this.props.closeModal());

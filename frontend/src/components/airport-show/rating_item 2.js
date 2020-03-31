@@ -2,42 +2,24 @@ import React from 'react';
 import './rating_item.scss'
 import RatingContainer from "../airport_results/rating_container/rating_container";
 
-const RatingItem = ({ review, currentUser, openModal, deleteReview }) => {
-    const rev_ratings = review.ratings;
-    let date = review.date.substring(0, 10).split('-');
-    date = `${date[1]}-${date[2]}-${date[0]}`;
-
+const RatingItem = (props) => {
+    const rev_ratings = props.review.ratings
+    
     return (
       <div className="rating-item">
         <ul className="main-rating">
           <li className="rating-header">
-            {review.user.username}
+            Authored by: {props.review.user.username}
           </li>
           <li className="rating-score">
             <RatingContainer num={rev_ratings.general_score} />
           </li>
           <li className="rating-date">
-            written {date}
-          </li>
-          <li>
-            {currentUser.id === review.user._id ?
-              <button
-                className="edit-btn"
-                onClick={() => openModal("edit-review", review)}>
-                Edit Review
-              </button> : null}
-          </li>
-          <li>
-            {currentUser.id === review.user._id ?
-              <button
-                className="edit-btn"
-                onClick={() => deleteReview(review._id)}>
-                Delete
-              </button> : null}
+            written {props.review.date.substring(0, 10)}
           </li>
         </ul>
         <ul>
-          <li className="rating-text">{review.review}</li>
+          <li className="rating-text">{props.review.review}</li>
         </ul>
         <div className="op-rating-box">
         <div className="optional-rating">
@@ -54,7 +36,7 @@ const RatingItem = ({ review, currentUser, openModal, deleteReview }) => {
         </div>
         <div className="optional-rating">
           <span className="sub-rating">
-            Waiting Hall <RatingContainer num={rev_ratings.waiting_hall} />
+            Waitng Hall <RatingContainer num={rev_ratings.waiting_hall} />
           </span>
           <span className="sub-rating">
             Wifi Charging <RatingContainer num={rev_ratings.wifi_charging} />
