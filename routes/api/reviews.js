@@ -37,8 +37,9 @@ router.delete('/:id', (req, res) => {
 
 router.patch('/:id', (req, res) => {
     Review.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        .then(node => res.json(node))
-        .catch(err => res.status(404).json(err))
+      .populate("user", "username")
+      .then(node => res.json(node))
+      .catch(err => res.status(404).json(err))
 });
 
 router.post(
