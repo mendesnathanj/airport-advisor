@@ -14,8 +14,6 @@ The site will feature easy searching and navigation so a user can view ratings o
 - [ ] Search bar with autofill that allows you to search airport by name and airport IATA code
 - [ ] Users can leave a review, along with ratings, and view others' reviews and ratings
 - [ ] Filter for reviews based on keywords
-Bonus
-- [ ] Display of airport related data (for example, nearby hotels or restaurants)
 
 ## Technologies & Technical Challenges
 
@@ -39,13 +37,24 @@ Parsing the large amount of airport data that we will have stored on the backend
 
 #### Search Bar / Autocomplete
 
+Search bar
 ![Search Bar](https://user-images.githubusercontent.com/27787818/77266002-80fb5480-6c5b-11ea-8a5c-b58497943b4d.png)
+![Search Bar 2](https://user-images.githubusercontent.com/27787818/78060641-bcbfa980-7340-11ea-8216-71477430af90.png)
+Result for a particular airport
 ![Result for a particular airport](https://user-images.githubusercontent.com/27787818/77266021-907a9d80-6c5b-11ea-8eac-7b73deb4f9ba.png)
 
-#### Creating a Review
+#### Creating and Editing Review
 
+Creating a review
 ![Createing a review](https://user-images.githubusercontent.com/27787818/77266065-aee09900-6c5b-11ea-8c18-f75475e225d0.png)
+Posting the review
 ![Posting the Review](https://user-images.githubusercontent.com/27787818/77266512-dedc6c00-6c5c-11ea-8f58-33a5f53024c1.png)
+Edit and delete buttons
+![Editing the Review](https://user-images.githubusercontent.com/27787818/78059948-99e0c580-733f-11ea-8518-56290b79058c.png)
+
+Filtering in the reviews
+![Filter in reviews](https://user-images.githubusercontent.com/27787818/78060755-f1cbfc00-7340-11ea-9e7d-ac24290b684c.png)
+
 
 ## Group Members & Work Breakdown
 
