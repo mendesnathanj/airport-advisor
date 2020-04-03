@@ -1,11 +1,11 @@
-# Airport Advisor
+# [Airport Advisor](http://airport-advisor.herokuapp.com/)
 
 
 ## Background and Overview
 
-Flying can be a very stressful experience.  
+Flying can be a very stressful experience.
 
-Oftentimes, travelers may find it much easier if they have information on the services of the airport they are visiting before they travel. Airport Advisor allows travelers to get useful information from fellow travelers about the airports they are going to visit, as well as share their own experiences.  
+Oftentimes, travelers may find it much easier if they have information on the services of the airport they are visiting before they travel. Airport Advisor allows travelers to get useful information from fellow travelers about the airports they are going to visit, as well as share their own experiences.
 
 The site will feature easy searching and navigation so a user can view ratings on different categories. Users may also help others by reviewing airports as well.
 
