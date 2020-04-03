@@ -67,3 +67,23 @@
 .navbar-title {
   justify-self: center;
 }
+
+.navlink.github-link {
+  color: #0197D8;
+  margin-right: 0;
+  font-size: 1.5rem;
+  transition: all 250ms ease-in-out;
+}
+
+.navbar.light .navlink.github-link {
+  color: #fff;
+}
+
+.github-link.navlink > a {
+  color: inherit;
+  margin-right: 0;
+}
+
+.github-link:hover {
+  transform: scale(1.2);
+}
