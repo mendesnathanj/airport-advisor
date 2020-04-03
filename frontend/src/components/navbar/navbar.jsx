@@ -14,6 +14,7 @@ const Navbar = ({ location, loggedIn, currentUser, logout, openModal }) => {
         <li className="navlink username">Welcome, { currentUser.username }</li>
         <li onClick={ () => logout() } className="navlink">Logout</li>
         <li className="navlink"><Link className="link" to="/group">Group</Link></li>
+        <li className="navlink github-link"><a target="_blank" href="https://github.com/mendesnathanj/airport-advisor"><i className="fab fa-github-alt"></i></a></li>
         { searchBar }
       </ul>
     );
