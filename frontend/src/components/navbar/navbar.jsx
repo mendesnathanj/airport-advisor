@@ -13,6 +13,7 @@ const Navbar = ({ location, loggedIn, currentUser, logout, openModal }) => {
       <ul className="navbar-list">
         <li className="navlink username">Welcome, { currentUser.username }</li>
         <li onClick={ () => logout() } className="navlink">Logout</li>
+        <li className="navlink"><Link className="link" to="/group">Group</Link></li>
         { searchBar }
       </ul>
     );
@@ -21,6 +22,8 @@ const Navbar = ({ location, loggedIn, currentUser, logout, openModal }) => {
       <ul className="navbar-list">
         <li onClick={ () => openModal('login') } className="navlink">Login</li>
         <li onClick={() => openModal('signup')} className="navlink">Signup</li>
+        <li className="navlink"><Link className="link" to="/group">Group</Link></li>
+        <li className="navlink github-link"><a target="_blank" href="https://github.com/mendesnathanj/airport-advisor"><i className="fab fa-github-alt"></i></a></li>
         { searchBar }
       </ul>
     );
