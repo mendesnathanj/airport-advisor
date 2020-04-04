@@ -27,9 +27,6 @@ export const updateReview = review => dispatch =>
     .then(review => dispatch(receiveReview(review)))
     .catch(err => console.log(err))
 
-// TODO:
-// MAY HAVE TO REFACTOR DEPENDING ON HOW RESPONSE IS
-// RECEIVED FROM BACKEND
 export const deleteReview = id => dispatch =>
   APIUtil.deleteReview(id)
     .then(id => dispatch(removeReview(id)))
