@@ -32,13 +32,14 @@ class ShowForm extends React.Component {
     }
 
     render () {
-        const { airport, reviews } = this.props;
+        const { airport, reviews, currentUser } = this.props;
 
         const filteredReviews = reviews
           .filter(review => review.review.toUpperCase().includes(this.state.filter.toUpperCase()))
           .sort((r1, r2) => ('' + r2.date).localeCompare(r1.date))
 
         if (!this.state.render) return null;
+
 
         const transportation = this.averageScore(reviews.map(review => review.ratings.transportation).filter(val => val !== 0));
         const restaurants = this.averageScore(reviews.map(review => review.ratings.restaurants).filter(val => val !== 0));
@@ -98,7 +99,7 @@ class ShowForm extends React.Component {
                   </span>
                 </div>
               </div>
-              {!!this.props.currentUser ? (
+              {currentUser && Object.keys(currentUser).length === 0 ? (
                 <button
                   className="review-btn"
                   onClick={() => this.props.openModal("new-review")}

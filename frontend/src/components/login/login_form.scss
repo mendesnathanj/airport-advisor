@@ -1,5 +1,15 @@
 $font-stack: 'Sen', sans-serif;
 
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .login, .signup {
     background-color: rgb(236, 236, 236);
     display: flex;
@@ -9,6 +19,7 @@ $font-stack: 'Sen', sans-serif;
     min-height: 475px;
     border-radius: 6px;
     text-align: center;
+    animation: fade 500ms ease-in-out 0s 1;
 }
 
 .header {
