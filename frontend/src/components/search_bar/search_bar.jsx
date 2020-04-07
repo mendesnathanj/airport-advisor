@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchBar.scss';
 import Results from './results/results';
+import Fuse from 'fuse.js';
 
 
 class SearchBar extends React.Component {
@@ -41,18 +42,31 @@ class SearchBar extends React.Component {
 
   filterSearch(e) {
     const searchTerm = e.target.value;
-    const searchString = e.target.value.toUpperCase();
-    const searchItems = this.props.airports
-                          .map(airport => {
-                            airport.string = `${airport.name} (${airport.code})`;
-                            return airport;
-                          })
-                          .filter(airport => airport.string.toUpperCase().includes(searchString));
+    // const airports = this.state.searchItems.length === 0 ? Object.values(this.props.airports) : this.state.searchItems;
+    const airports = Object.values(this.props.airports);
 
-    if (searchItems.length === this.props.airports.length)
-      this.setState({ searchTerm, searchItems: [] });
-    else
-      this.setState({ searchTerm, searchItems });
+    const options = {
+      includeScore: true,
+      shouldSort: true,
+      threshold: 0.4,
+      keys: [
+        {
+          name: 'name',
+          weight: 0.2
+        },
+        {
+          name: 'code',
+          weight: 0.8
+        }
+      ]
+    };
+
+    const fuse = new Fuse(airports, options);
+    const searchItems = fuse.search(searchTerm)
+      .map(airport => airport.item._id)
+      .map(id => this.props.airports[id]);
+
+    this.setState({ searchTerm, searchItems });
   }
 
   render() {

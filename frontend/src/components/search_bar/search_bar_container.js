@@ -5,7 +5,7 @@ import SearchBar from './search_bar';
 
 
 const mapStateToProps = state => ({
-  airports: Object.values(state.airports)
+  airports: state.airports
 });
 
 const mapDispatchToProps = dispatch => ({
