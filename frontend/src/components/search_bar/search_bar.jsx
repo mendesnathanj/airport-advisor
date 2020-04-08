@@ -42,7 +42,6 @@ class SearchBar extends React.Component {
 
   filterSearch(e) {
     const searchTerm = e.target.value;
-    // const airports = this.state.searchItems.length === 0 ? Object.values(this.props.airports) : this.state.searchItems;
     const airports = Object.values(this.props.airports);
 
     const options = {

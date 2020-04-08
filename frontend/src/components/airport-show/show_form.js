@@ -99,7 +99,7 @@ class ShowForm extends React.Component {
                   </span>
                 </div>
               </div>
-              {currentUser && Object.keys(currentUser).length === 0 ? (
+              {currentUser && Object.keys(currentUser).length !== 0 ? (
                 <button
                   className="review-btn"
                   onClick={() => this.props.openModal("new-review")}
