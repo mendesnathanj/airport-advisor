@@ -16,7 +16,6 @@ class SearchBar extends React.Component {
   }
 
   componentDidMount() {
-    console.log('SEARCH BAR MOUNTING');
     this.props.fetchAirports().then(() => console.log('SEARCH BAR QUERY DONE'));
   }
 
