@@ -3,7 +3,7 @@ import SearchBarContainer from '../search_bar/search_bar_container';
 import { Link } from 'react-router-dom';
 import './Navbar.scss';
 
-const Navbar = ({ location, loggedIn, currentUser, logout, openModal }) => {
+const Navbar = ({ location, loggedIn, currentUser, logout, openModal, demoLogin }) => {
   const navbarTheme = location.pathname === '/' ? 'light' : 'dark';
   const searchBar = location.pathname === '/' ? null : <li><SearchBarContainer /></li>;
 
@@ -21,6 +21,7 @@ const Navbar = ({ location, loggedIn, currentUser, logout, openModal }) => {
   } else {
     navLinks = (
       <ul className="navbar-list">
+        <li onClick={ () => demoLogin() } className="navlink">Demo Login</li>
         <li onClick={ () => openModal('login') } className="navlink">Login</li>
         <li onClick={() => openModal('signup')} className="navlink">Signup</li>
         <li className="navlink"><Link className="link" to="/group">Group</Link></li>

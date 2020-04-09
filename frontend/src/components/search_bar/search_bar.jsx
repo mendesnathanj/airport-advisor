@@ -5,7 +5,6 @@ import Fuse from 'fuse.js';
 
 
 class SearchBar extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -17,16 +16,20 @@ class SearchBar extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAirports();
+    console.log('SEARCH BAR MOUNTING');
+    this.props.fetchAirports().then(() => console.log('SEARCH BAR QUERY DONE'));
   }
 
   search() {
     if (this.state.searchTerm === '') return;
     if (this.state.searchItems.length === 0) return;
 
+    let query = this.state.searchItems.map((airport) => airport._id).slice(0, 10);
+    query = query.join(',');
+
     this.props.history.push({
       pathname: '/airports',
-      search: `?term=${this.state.searchTerm}&query=${this.state.searchItems.map(airport => airport._id).join(',')}`
+      search: `?term=${this.state.searchTerm}&query=${query}`
     });
 
     this.clear();

@@ -4,16 +4,16 @@ const mongoose = require("mongoose");
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
-  .catch(err => console.log(err)); 
+  .catch(err => console.log(err));
 
-// mongoose.airports.drop({});
 
 const fs = require('fs');
-const parse = require("csv-parse");
+const parser = require("csv-parser");
 const Airport = require("../models/Airport")
+const filepath = "./airport-codes.csv";
 
 Airport.remove({}, () => {
-  console.log("all data removed");
+  console.log("all airports removed");
 });
 
 const excludedCats = [
@@ -25,45 +25,32 @@ const excludedCats = [
   "balloonport"
 ];
 
-const considerInclude = ["small_airport", "medium_airport"]
-let data = [];
 
+fs.createReadStream(filepath)
+  .on("error", err => console.log(err))
+  .pipe(parser({ separator: "," }))
+  .on("data", row => {
+    // console.log(row);
+    if (row["iata_code"] && !excludedCats.includes(row["type"])) {
 
-fs.createReadStream("./airport-codes.csv")
-    .pipe(parse({ delimiter: "," }))
-    .on("data", r => {
+      let coords = row["coordinates"].split(",")
+      let lat = coords[0];
+      let long = coords[1];
 
-        const coords = r[11].split(",");
-        const lat = coords[0];
-        const long = coords[1];
-
-        if (!excludedCats.includes(r[1]) && r[2] !== "name" && r[9]) {
-          const newAirport = new Airport({
-            name: r[2],
-            code: r[9],
-            city: r[7],
-            country: r[4],
-            lat: lat,
-            long: long
-          });
-
-          // newAirport.populate('reviews')
-          
-          data.push(newAirport);
-          
-          // newAirport.save()
-        };
-
-    })
-
-    .on("end", () => {
-      const testData = data.slice(0, 10);
-      console.log(testData)
-      testData.forEach(airport => {
-        airport.save();
+      let newAirport = new Airport({
+        name: row["name"],
+        code: row["iata_code"],
+        city: row["municipality"] || "NA",
+        country: row["iso_country"] || "NA",
+        lat: lat || 0,
+        long: long || 0
       });
-      console.log("end");
-    });
 
+      newAirport.save()
+        .catch(err => { console.log(`oh no the airport didn't save ${newAirport.name}`) })
+    }
 
-
+  })
+  .on("end", () => {
+    console.log("end");
+  });
