@@ -64,4 +64,4 @@ Filtering in the reviews
 - Nathan Mendes (Frontend engineer)
 
 Used git feature branch workflow technique for collaboration.
-![Working Tree](https://user-images.githubusercontent.com/27787818/77266837-e8b29f00-6c5d-11ea-8a1a-6266e14c2e10.png)
+![Working Tree](readme_photos/work_flow.png)
