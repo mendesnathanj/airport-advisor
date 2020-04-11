@@ -41,18 +41,25 @@ Search bar
 ![Search Bar](readme_photos/search.png) 
 
 Result for a particular airport
+
 ![Result for a particular airport](readme_photos/general_review.png)
 
 #### Creating and Editing Review
 
 Creating a review
+
 ![Createing a review](readme_photos/each_review1.png)
+
 Posting the review
+
 ![Posting the Review](readme_photos/each_review1.png)
+
 Edit and delete buttons
+
 ![Editing the Review](readme_photos/edit_review.png)
 
 Filtering in the reviews
+
 ![Filter in reviews](readme_photos/review_show.png)
 
 
@@ -64,4 +71,5 @@ Filtering in the reviews
 - Nathan Mendes (Frontend engineer)
 
 Used git feature branch workflow technique for collaboration.
+
 ![Working Tree](readme_photos/work_flow.png)
