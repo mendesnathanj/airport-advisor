@@ -17,8 +17,12 @@ class ShowForm extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-      if (prevProps.match.params.airportId !== this.props.match.params.airportId)
-        this.props.fetchAirport(this.props.match.params.airportId);
+      if (prevProps.match.params.airportId !== this.props.match.params.airportId) {
+        // this.props.fetchAirport(this.props.match.params.airportId);
+        this.setState({ render: false })
+        this.props.fetchAirport(this.props.match.params.airportId)
+          .then(() => this.setState({ render: true }));
+      }
     }
 
     filterReviews({ target }) {
@@ -33,6 +37,8 @@ class ShowForm extends React.Component {
 
     render () {
         const { airport, reviews, currentUser } = this.props;
+
+        if (airport === undefined) return null;
 
         const filteredReviews = reviews
           .filter(review => review.review.toUpperCase().includes(this.state.filter.toUpperCase()))
