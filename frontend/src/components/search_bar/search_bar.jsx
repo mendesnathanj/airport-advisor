@@ -16,14 +16,14 @@ class SearchBar extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAirports().then(() => console.log('SEARCH BAR QUERY DONE'));
+    this.props.fetchAirports();
   }
 
   search() {
     if (this.state.searchTerm === '') return;
     if (this.state.searchItems.length === 0) return;
 
-    let query = this.state.searchItems.map((airport) => airport._id).slice(0, 10);
+    let query = this.state.searchItems.map((airport) => airport._id).slice(0, 5);
     query = query.join(',');
 
     this.props.history.push({
