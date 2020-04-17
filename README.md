@@ -52,7 +52,7 @@ Creating a review
 
 Posting the review
 
-![Posting the Review](readme_photos/each_review1.png)
+![Posting the Review](readme_photos/each_review2.png)
 
 Edit and delete buttons
 
