@@ -32,6 +32,7 @@ Parsing the large amount of airport data that we will have stored on the backend
 #### Splash Page
 
 How to signup and login:
+
 ![Login and signup](readme_photos/demologin-edit-delete-review.gif)
 
 ![Splash page](readme_photos/landing.png)
