@@ -35,6 +35,8 @@ Parsing the large amount of airport data that we will have stored on the backend
 
 ![Login Modal](readme_photos/login.png)
 
+![Login and signup](readme_photos/demologin-edit-delete-review.gif)
+
 #### Search Bar / Autocomplete
 
 Search bar
@@ -47,6 +49,8 @@ Result for a particular airport
 #### Creating and Editing Review
 
 Creating a review
+
+![Delete and edit](readme_photos/demologin-edit-delete-review.gif)
 
 ![Createing a review](readme_photos/each_review1.png)
 
