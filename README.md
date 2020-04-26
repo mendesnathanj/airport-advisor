@@ -31,11 +31,12 @@ Parsing the large amount of airport data that we will have stored on the backend
 
 #### Splash Page
 
+How to signup and login:
+![Login and signup](readme_photos/demologin-edit-delete-review.gif)
+
 ![Splash page](readme_photos/landing.png)
 
 ![Login Modal](readme_photos/login.png)
-
-![Login and signup](readme_photos/demologin-edit-delete-review.gif)
 
 #### Search Bar / Autocomplete
 
@@ -50,7 +51,6 @@ Result for a particular airport
 
 Creating a review
 
-![Delete and edit](readme_photos/demologin-edit-delete-review.gif)
 
 ![Createing a review](readme_photos/each_review1.png)
 
@@ -59,6 +59,10 @@ Posting the review
 ![Posting the Review](readme_photos/each_review2.png)
 
 Edit and delete buttons
+
+Deleting and editing posts:
+
+![Delete and edit](readme_photos/demologin-edit-delete-review.gif)
 
 ![Editing the Review](readme_photos/edit_review.png)
 
