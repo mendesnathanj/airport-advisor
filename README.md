@@ -33,7 +33,7 @@ Parsing the large amount of airport data that we will have stored on the backend
 
 How to signup and login:
 
-![Login and signup](readme_photos/demologin-edit-delete-review.gif)
+![Login and signup](readme_photos/login-signup.gif)
 
 ![Splash page](readme_photos/landing.png)
 
