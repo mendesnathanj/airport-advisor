@@ -35,10 +35,6 @@ How to signup and login:
 
 ![Login and signup](readme_photos/login-signup.gif)
 
-![Splash page](readme_photos/landing.png)
-
-![Login Modal](readme_photos/login.png)
-
 #### Search Bar / Autocomplete
 
 Search bar
@@ -64,8 +60,6 @@ Edit and delete buttons
 Deleting and editing posts:
 
 ![Delete and edit](readme_photos/demologin-edit-delete-review.gif)
-
-![Editing the Review](readme_photos/edit_review.png)
 
 Filtering in the reviews
 
