@@ -25,8 +25,8 @@
   "homepage": "https://github.com/mendesnathanj/airport-advisor#readme",
   "dependencies": {
     "async": "^3.2.0",
+    "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
     "concurrently": "^5.1.0",
     "csv-parse": "^4.8.8",
     "csv-parser": "^2.3.2",
