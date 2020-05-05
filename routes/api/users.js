@@ -41,7 +41,7 @@ router.post('/signup', (req, res) => {
                             user: user,
                             token: 'Bearer ' + getToken(user)
                         })
-                    }).catch(err => console.log(err));
+                    }).catch(err => res.error(err));
                 })
             })
         }

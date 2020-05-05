@@ -15,33 +15,20 @@ const Airport = require("../models/Airport");
 mongoose
     .connect(db, { useNewUrlParser: true })
     .then(() => {
-        
         console.log("Connected to MongoDB successfully")
     })
     .catch(err => console.log(err)); 
 
 
-// REMOVE PREVIOUS REVIEWS & USERS
+//// REMOVE PREVIOUS REVIEWS & USERS
+// Review.remove({}, () => {
+//     console.log("all reviews removed");
+// });
 
-Review.remove({}, () => {
-    console.log("all reviews removed");
-});
+// User.remove({}, () => {
+//     console.log("all users removed");
+// });
 
-User.remove({}, () => {
-    console.log("all users removed");
-});
-
-
-// GENERATE ONE USER
-
-// axios method did not work
-// const genUser = () => {
-//     axios.post("/api/users/signup", {
-//       username: faker.name.findName(),
-//       password: "password",
-//       password2: "password"
-//     });
-// }
 
 const genUser = () => {
     let genUsername = faker.name.findName();
