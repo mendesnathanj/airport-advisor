@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
-  .catch(err => console.log(err)); 
+  .catch(err => console.log(err));
 
 
 const fs = require('fs');
@@ -27,10 +27,11 @@ const excludedCats = [
 
 
 fs.createReadStream(filepath)
-  .on("error", () => {console.log("oops something went wrong at the start")})
+  .on("error", err => console.log(err))
   .pipe(parser({ separator: "," }))
   .on("data", row => {
-    if(row["iata_code"] && !excludedCats.includes(row["type"])) {
+    // console.log(row);
+    if (row["iata_code"] && !excludedCats.includes(row["type"])) {
 
       let coords = row["coordinates"].split(",")
       let lat = coords[0];
@@ -44,16 +45,12 @@ fs.createReadStream(filepath)
         lat: lat || 0,
         long: long || 0
       });
-      
-      newAirport.save()
-                .catch(err => {console.log(`oh no the airport didn't save ${newAirport.name}`)})
-    }
-    
-  })
 
+      newAirport.save()
+        .catch(err => { console.log(`oh no the airport didn't save ${newAirport.name}`) })
+    }
+
+  })
   .on("end", () => {
     console.log("end");
   });
-
-
-

@@ -1,10 +1,10 @@
 import React from 'react';
 import './SearchBar.scss';
 import Results from './results/results';
+import Fuse from 'fuse.js';
 
 
 class SearchBar extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -23,9 +23,12 @@ class SearchBar extends React.Component {
     if (this.state.searchTerm === '') return;
     if (this.state.searchItems.length === 0) return;
 
+    let query = this.state.searchItems.map((airport) => airport._id).slice(0, 5);
+    query = query.join(',');
+
     this.props.history.push({
       pathname: '/airports',
-      search: `?term=${this.state.searchTerm}&query=${this.state.searchItems.map(airport => airport._id).join(',')}`
+      search: `?term=${this.state.searchTerm}&query=${query}`
     });
 
     this.clear();
@@ -41,18 +44,30 @@ class SearchBar extends React.Component {
 
   filterSearch(e) {
     const searchTerm = e.target.value;
-    const searchString = e.target.value.toUpperCase();
-    const searchItems = this.props.airports
-                          .map(airport => {
-                            airport.string = `${airport.name} (${airport.code})`;
-                            return airport;
-                          })
-                          .filter(airport => airport.string.toUpperCase().includes(searchString));
+    const airports = Object.values(this.props.airports);
 
-    if (searchItems.length === this.props.airports.length)
-      this.setState({ searchTerm, searchItems: [] });
-    else
-      this.setState({ searchTerm, searchItems });
+    const options = {
+      includeScore: true,
+      shouldSort: true,
+      threshold: 0.4,
+      keys: [
+        {
+          name: 'name',
+          weight: 0.2
+        },
+        {
+          name: 'code',
+          weight: 0.8
+        }
+      ]
+    };
+
+    const fuse = new Fuse(airports, options);
+    const searchItems = fuse.search(searchTerm)
+      .map(airport => airport.item._id)
+      .map(id => this.props.airports[id]);
+
+    this.setState({ searchTerm, searchItems });
   }
 
   render() {

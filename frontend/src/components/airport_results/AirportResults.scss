@@ -1,10 +1,21 @@
 $link-blue: #0197D8;
 
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .airport-results {
   margin: 0 auto;
   margin-top: 100px;
   width: 900px;
   font-family: 'Sen', sans-serif;
+  animation: fade 300ms ease-in-out 0s 1;
 }
 
 .results-header {
