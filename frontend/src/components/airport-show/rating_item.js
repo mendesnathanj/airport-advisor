@@ -64,7 +64,7 @@ const RatingItem = ({ review, currentUser, openModal, deleteReview }) => {
           <span className="sub-rating">
             Sleepability <RatingContainer num={rev_ratings.sleepability} />
           </span>
-          <span>
+          <span className="sub-rating">
             Cleanliness <RatingContainer num={rev_ratings.cleanliness} />
           </span>
         </div>

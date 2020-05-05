@@ -43,8 +43,6 @@ class LoginForm extends React.Component {
     }
 
     renderErrors() {
-      // console.log('errors should be in login form renderErrors', this.props.errors);
-      // console.log('props.error', this.props.errors)
       return(
         <ul className='errors'>
           {Object.keys(this.props.errors).map((error, i) => (
@@ -58,8 +56,6 @@ class LoginForm extends React.Component {
 
 
     render() {
-      console.log('errors in render part of login form', this.state.errors)
-
         return (
           <div className="login">
             <h1 className="header">Login</h1>

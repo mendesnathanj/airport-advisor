@@ -4,16 +4,21 @@ import './AirportResults.scss';
 
 class AirportResults extends React.Component {
   componentDidMount() {
-    this.props.fetchAirports();
+    this.props.searchAirports(this.props.query);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.searchTerm !== this.props.searchTerm)
+      this.props.searchAirports(this.props.query);
   }
 
   render() {
     const { airports, searchTerm } = this.props;
+    const render = airports.filter(airport => airport === undefined).length === 0;
 
-    if (searchTerm === undefined || searchTerm === '') return null;
-    if (airports.filter(airport => airport !== undefined).length === 0) return null;
+    if (!render) return null;
 
-    const airportItems = this.props.airports.map((airport, i) => (
+    const airportItems = airports.map((airport, i) => (
       <div key={airport._id}>
         <AirportItem index={i + 1} airport={airport} />
       </div>
@@ -22,7 +27,7 @@ class AirportResults extends React.Component {
     return (
       <div className="airport-results">
         <div className="header-container">
-          <h1 className="results-header">Results for <span className="term">"{this.props.searchTerm}"</span></h1>
+          <h1 className="results-header">Results for <span className="term">"{searchTerm}"</span></h1>
         <span className="underline"></span>
         </div>
         <div className="results-container">

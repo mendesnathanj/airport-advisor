@@ -17,8 +17,12 @@ class ShowForm extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-      if (prevProps.match.params.airportId !== this.props.match.params.airportId)
-        this.props.fetchAirport(this.props.match.params.airportId);
+      if (prevProps.match.params.airportId !== this.props.match.params.airportId) {
+        // this.props.fetchAirport(this.props.match.params.airportId);
+        this.setState({ render: false })
+        this.props.fetchAirport(this.props.match.params.airportId)
+          .then(() => this.setState({ render: true }));
+      }
     }
 
     filterReviews({ target }) {
@@ -32,13 +36,16 @@ class ShowForm extends React.Component {
     }
 
     render () {
-        const { airport, reviews } = this.props;
+        const { airport, reviews, currentUser } = this.props;
+
+        if (airport === undefined) return null;
 
         const filteredReviews = reviews
           .filter(review => review.review.toUpperCase().includes(this.state.filter.toUpperCase()))
           .sort((r1, r2) => ('' + r2.date).localeCompare(r1.date))
 
         if (!this.state.render) return null;
+
 
         const transportation = this.averageScore(reviews.map(review => review.ratings.transportation).filter(val => val !== 0));
         const restaurants = this.averageScore(reviews.map(review => review.ratings.restaurants).filter(val => val !== 0));
@@ -98,7 +105,7 @@ class ShowForm extends React.Component {
                   </span>
                 </div>
               </div>
-              {!!this.props.currentUser ? (
+              {currentUser && Object.keys(currentUser).length !== 0 ? (
                 <button
                   className="review-btn"
                   onClick={() => this.props.openModal("new-review")}

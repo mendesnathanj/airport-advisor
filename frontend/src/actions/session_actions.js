@@ -48,7 +48,6 @@ export const login = user => dispatch => (
     dispatch(receiveCurrentUser(decoded));
   })
   .catch(err => {
-    console.log('errors in session action in login', err+2)
     dispatch(receiveErrors(err.response.data));
   })
 );
