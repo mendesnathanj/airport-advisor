@@ -30,7 +30,6 @@ fs.createReadStream(filepath)
   .on("error", err => console.log(err))
   .pipe(parser({ separator: "," }))
   .on("data", row => {
-    // console.log(row);
     if (row["iata_code"] && !excludedCats.includes(row["type"])) {
 
       let coords = row["coordinates"].split(",")

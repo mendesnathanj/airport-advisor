@@ -224,40 +224,5 @@ mongoose
     .connect(db, { useNewUrlParser: true })
     .then(() => {
         console.log("Connected to MongoDB successfully");
-
-        // Airport.find({}, (err, airports) => {
-        //     console.log('ERRRRR: ', err);
-        //     console.log(airports);
-        // });
-        // Airport.find({}, '_id', (_, airports) => {
-        //     airports = airports.map(airport => airport._id);
-
-        //     User.find({}, '_id', (_, users) => {
-        //         users = users.map(user => user._id);
-
-        //         airports.forEach(airport => {
-        //             const reviews = getReviews()
-        //                 .map(review => {
-        //                     const randUser = Math.floor(Math.random() * users.length);
-        //                         review.user = users[randUser];
-        //                         review.airport = airport;
-        //                         return review;
-        //                     })
-        //                 .map(review_data => new Review(review_data));
-
-        //             reviews.forEach((review) => {
-        //               review.save().then(saved => {
-        //                 Airport.findById(airport).then(port => {
-        //                   port.reviews.push(saved);
-        //                   port
-        //                     .save()
-        //                     .then(() => console.log(`saved successfully for airport ${port._id}`))
-        //                     .catch((err) => console.log(err));
-        //                 });
-        //               });
-        //             });
-        //         });
-        //     });
-        // });
     })
     .catch(err => console.log(err));
