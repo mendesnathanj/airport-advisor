@@ -79,7 +79,6 @@ class LoginForm extends React.Component {
               <input className="submit-login" type="submit" value="Login" />
               {this.renderErrors()}
             </form>
-            {/* <button>Create a button to open the sign up modal</button> */}
           </div>
         );
     }

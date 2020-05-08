@@ -1,5 +1,6 @@
 # [Airport Advisor](http://airport-advisor.herokuapp.com/)
 
+![Demo](readme_photos/start-end.gif)
 
 ## Background and Overview
 
@@ -35,6 +36,18 @@ How to signup and login:
 
 ![Login and signup](readme_photos/login-signup.gif)
 
+Login modal closes when user is loged in with this function:
+
+```
+let modalOpen = true;
+window.store.subscribe(() => {
+    if(window.store.getState().session.isAuthenticated && modalOpen) {
+    modalOpen = false;
+    props.closeModal();
+    }
+});
+```
+
 #### Search Bar / Autocomplete
 
 Search bar
@@ -43,6 +56,27 @@ Search bar
 Result for a particular airport
 
 ![Result for a particular airport](readme_photos/general_review.png)
+
+```
+search() {
+    if (this.state.searchTerm === '') return;
+    if (this.state.searchItems.length === 0) return;
+
+    let query = this.state.searchItems.map((airport) => airport._id).slice(0, 10);
+    query = query.join(',');
+
+    this.props.history.push({
+      pathname: '/airports',
+      search: `?term=${this.state.searchTerm}&query=${query}`
+    });
+
+    this.clear();
+}
+
+clear() {
+    this.setState({ searchTerm: "", searchItems: [] });
+}
+```
 
 #### Creating and Editing Review
 
@@ -54,6 +88,12 @@ Creating a review
 Posting the review
 
 ![Posting the Review](readme_photos/each_review2.png)
+
+For showing how many characher left on review box on texbox component this code snipped used:
+
+```
+    this.state = { wordsLeft: 666 - this.props.review.length };
+``` 
 
 Edit and delete buttons
 
