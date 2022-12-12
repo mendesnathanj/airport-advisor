@@ -31,7 +31,7 @@
     "csv-parse": "^4.8.8",
     "csv-parser": "^2.3.2",
     "csvtojson": "^2.0.10",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "faker": "^4.1.0",
     "file-system": "^2.2.2",
     "jsonwebtoken": "^8.5.1",
